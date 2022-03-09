@@ -22,7 +22,7 @@ class BootstrapCommand extends Commands.BaseAppCommand {
     }
     safePrint("Bootstrap Started, v${MainAppState.kVersion}");
     // Load AppModel ASAP
-    await mainAppState.load();
+    // await mainAppState.load();
     safePrint(
         "BootstrapCommand - AppModel Loaded, user = ${mainAppState.currentUser}");
     // Set the cacheSize so we'll use more RAM on desktop and higher spec devices.

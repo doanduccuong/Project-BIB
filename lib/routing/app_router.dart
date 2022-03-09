@@ -66,9 +66,9 @@ class AppRouterDelegate extends RouterDelegate<PageConfiguration>
 
   List<Page> _buildPageList(BuildContext context) {
     switch (currentConfiguration.runtimeType) {
-      case LandingPageConfiguration:
+      case HomePageConfiguration:
         return [
-          _createContentInPage(LandingPage(), currentConfiguration),
+          _createContentInPage(HomePage(), currentConfiguration),
         ];
       case VerifyPageConfiguration:
         return [
@@ -94,10 +94,10 @@ class AppRouterDelegate extends RouterDelegate<PageConfiguration>
             currentConfiguration,
           ),
         ];
-      case HomePageConfiguration:
-        return [
-          _createContentInPage(HomePage(), currentConfiguration),
-        ];
+      // case HomePageConfiguration:
+      //   return [
+      //     _createContentInPage(HomePage(), currentConfiguration),
+      //   ];
       default:
         return [
           _createContentInPage(LandingPage(), currentConfiguration),

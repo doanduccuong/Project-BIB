@@ -7,7 +7,8 @@ import 'package:base_flutter/features/authentication/widgets/error_input_message
 import 'package:base_flutter/features/authentication/widgets/policy_term_checkbox.dart';
 import 'package:base_flutter/features/authentication/widgets/text_input_button.dart';
 import 'package:base_flutter/routing/page_configurations/auth_page_configuration.dart';
-import 'package:base_flutter/routing/page_configurations/home_page_configuration.dart';
+
+import 'package:base_flutter/routing/page_configurations/landing_page_configuration.dart';
 import 'package:base_flutter/shared/styled_widgets/buttons/rounded_loading_button.dart';
 import 'package:base_flutter/shared/styled_widgets/buttons/styled_btn.dart';
 import 'package:base_flutter/shared/extensions/size_extension.dart';

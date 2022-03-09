@@ -3,7 +3,9 @@ import 'package:base_flutter/components/text_bold.dart';
 import 'package:base_flutter/components/text_normal.dart';
 import 'package:base_flutter/configs/colors.dart';
 import 'package:base_flutter/configs/images.dart';
-import 'package:base_flutter/features/forgot_password_page/forgot_password_page.dart';
+import 'package:base_flutter/features/authentication/views/forgot_password/forgot_password_page.dart';
+
+
 import 'package:base_flutter/features/landing/widgets/button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -69,7 +71,7 @@ class EmailCheckPage extends StatelessWidget {
                 callBack: (){
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => ForgotPasswordPage(),
+                      builder: (context) => ForgotPassword(),
                     ),
                   );
                 },

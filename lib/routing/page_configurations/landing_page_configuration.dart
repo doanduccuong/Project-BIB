@@ -1,10 +1,10 @@
 import 'package:base_flutter/routing/page_configurations/page_configuration.dart';
 
-class LandingPageConfiguration extends PageConfiguration {
-  LandingPageConfiguration(): super(key: 'landing', path: LandingPath, uiPage: Pages.Landing);
+class HomePageConfiguration extends PageConfiguration {
+  HomePageConfiguration(): super(key: 'home', path: HomePath, uiPage: Pages.Landing);
 
-  factory LandingPageConfiguration.fromLocation(String location){
-    final config = LandingPageConfiguration();
+  factory HomePageConfiguration.fromLocation(String location){
+    final config = HomePageConfiguration();
     final uri = Uri.parse(location);
     final pathSegments = uri.pathSegments;
     return config;

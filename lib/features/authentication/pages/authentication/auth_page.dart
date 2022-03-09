@@ -1,8 +1,7 @@
-import 'package:base_flutter/commands/navigate_to_command.dart';
 import 'package:base_flutter/data/repositories/user_repository.dart';
 import 'package:base_flutter/features/authentication/pages/authentication/bloc/auth_page_cubit.dart';
 import 'package:base_flutter/features/authentication/pages/authentication/bloc/auth_page_state.dart';
-import 'package:base_flutter/features/authentication/views/forgot_password/forgot_password_form.dart';
+import 'package:base_flutter/features/authentication/views/forgot_password/forgot_password_page.dart';
 import 'package:base_flutter/features/authentication/views/reset_password/reset_password_form.dart';
 import 'package:base_flutter/features/authentication/views/sign_in/bloc/sign_in_cubit.dart';
 import 'package:base_flutter/features/authentication/views/sign_in/sign_in_form.dart';
@@ -13,7 +12,7 @@ import 'package:base_flutter/shared/extensions/size_extension.dart';
 import 'package:base_flutter/shared/extensions/translate_extention.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:provider/provider.dart';
+
 import '../../../../styles.dart';
 
 class AuthPage extends StatefulWidget {
@@ -34,23 +33,25 @@ class _AuthPageState extends State<AuthPage> {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutAuthPage(children: [
-      BlocBuilder<AuthPageCubit, AuthPageState>(builder: (context, state) {
-        return Padding(
-          padding: EdgeInsets.symmetric(horizontal: 80.0.h),
-          child: _authTitle(state),
-        );
-      }),
-      Expanded(
-        child: BlocBuilder<AuthPageCubit, AuthPageState>(
-            builder: (context, state) {
+    return LayoutAuthPage(
+      children: [
+        BlocBuilder<AuthPageCubit, AuthPageState>(builder: (context, state) {
           return Padding(
-            padding: EdgeInsets.symmetric(horizontal: 32.0.h),
-            child: _authSubView(state),
+            padding: EdgeInsets.symmetric(horizontal: 80.0.h),
+            child: _authTitle(state),
           );
         }),
-      ),
-    ]);
+        Expanded(
+          child: BlocBuilder<AuthPageCubit, AuthPageState>(
+              builder: (context, state) {
+            return Padding(
+              padding: EdgeInsets.symmetric(horizontal: 32.0.h),
+              child: _authSubView(state),
+            );
+          }),
+        ),
+      ],
+    );
   }
 
   Widget _authTitle(AuthPageState state) {
@@ -84,7 +85,7 @@ class _AuthPageState extends State<AuthPage> {
       case AuthPageSubPage.resetPassword:
         return ResetPasswordForm();
       case AuthPageSubPage.forgotPassword:
-        return ForgotPasswordForm();
+        return ForgotPassword();
     }
   }
 

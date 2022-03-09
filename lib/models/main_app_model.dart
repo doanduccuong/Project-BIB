@@ -26,7 +26,7 @@ class MainAppState extends AbstractModel {
 
   static AppTheme get _defaultTheme =>
       AppTheme.fromType(ThemeType.Cyan_Light);
-  static PageConfiguration _defaultPage = LandingPageConfiguration();
+  static PageConfiguration _defaultPage = HomePageConfiguration();
 
   UserRepository userRepository;
 
@@ -68,7 +68,7 @@ class MainAppState extends AbstractModel {
   void reset() {
     _currentUser = null;
     userRepository.logout();
-    _currentPage = LandingPageConfiguration();
+    _currentPage = HomePageConfiguration();
   }
 
   /// Startup
@@ -127,20 +127,20 @@ class MainAppState extends AbstractModel {
     UniversalFile(kFileName).write(saveJson);
   }
 
-  load() async {
-    final user = await userRepository.getCurrentUser();
-    _currentUser = user;
-    _currentPage = _currentUser != null
-        ? HomePageConfiguration()
-        : LandingPageConfiguration();
-    String saveJson = await UniversalFile(MainAppState.kFileName).read();
-    try {
-      fromJson(jsonDecode(saveJson) as Map<String, dynamic>);
-    } catch (e) {
-      safePrint("Failed to load save file");
-    }
-    print("File loaded, $windowRect");
-  }
+  // load() async {
+  //   final user = await userRepository.getCurrentUser();
+  //   _currentUser = user;
+  //   _currentPage = _currentUser != null
+  //       ? HomePageConfiguration()
+  //       : LandingPageConfiguration();
+  //   String saveJson = await UniversalFile(MainAppState.kFileName).read();
+  //   try {
+  //     fromJson(jsonDecode(saveJson) as Map<String, dynamic>);
+  //   } catch (e) {
+  //     safePrint("Failed to load save file");
+  //   }
+  //   print("File loaded, $windowRect");
+  // }
 
   void fromJson(Map<String, dynamic> json) {
     if (json["enableTouchMode"] != null) {
