@@ -8,11 +8,11 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:provider/provider.dart';
 
 import 'application.dart';
 import 'commands/bootstrap_command.dart';
-import 'features/login_page/provider/login_page_provider.dart';
+
+import 'features/authentication/views/login_page/provider/login_page_provider.dart';
 import 'localizations/app_localizations.dart';
 
 void main() async {
@@ -38,12 +38,10 @@ void main() async {
   // /// Run
   runApp(MultiProvider(
     providers: [
-
       Provider.value(value: application.userRepository),
       // App Model - Stores data related to global settings or app modes
       ChangeNotifierProvider.value(value: mainAppState),
-      ChangeNotifierProvider(create: (_)=>LogInScreenProvider()),
-
+      ChangeNotifierProvider(create: (_) => LogInScreenProvider()),
     ],
     child: _AppBootstrapper(),
   ));

@@ -6,7 +6,8 @@ import 'package:base_flutter/configs/images.dart';
 import 'package:base_flutter/features/authentication/views/forgot_password/forgot_password_page.dart';
 
 
-import 'package:base_flutter/features/landing/widgets/button.dart';
+
+import 'package:base_flutter/widget/button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 

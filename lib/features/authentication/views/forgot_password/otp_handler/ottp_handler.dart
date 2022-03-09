@@ -1,6 +1,7 @@
 import 'package:base_flutter/components/text_normal.dart';
 import 'package:base_flutter/configs/colors.dart';
-import 'package:base_flutter/features/landing/widgets/button.dart';
+import 'package:base_flutter/widget/button.dart';
+
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 

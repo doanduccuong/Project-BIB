@@ -3,12 +3,12 @@ import 'package:base_flutter/features/authentication/pages/authentication/bloc/a
 import 'package:base_flutter/features/authentication/pages/authentication/bloc/auth_page_state.dart';
 import 'package:base_flutter/features/flash/flash.dart';
 import 'package:base_flutter/features/home/home_page.dart';
-import 'package:base_flutter/features/landing/pages/landing_page.dart';
+
 import 'package:base_flutter/features/verify/pages/verify_page.dart';
 import 'package:base_flutter/features/verify_code/pages/verify_code_page.dart';
 import 'package:base_flutter/models/main_app_model.dart';
 import 'package:base_flutter/routing/page_configurations/auth_page_configuration.dart';
-import 'package:base_flutter/routing/page_configurations/home_page_configuration.dart';
+
 import 'package:base_flutter/routing/page_configurations/landing_page_configuration.dart';
 import 'package:base_flutter/routing/page_configurations/page_configuration.dart';
 import 'package:base_flutter/routing/page_configurations/verify_page_configuration.dart';
@@ -84,10 +84,11 @@ class AppRouterDelegate extends RouterDelegate<PageConfiguration>
             BlocProvider<AuthPageCubit>(
               create: (BuildContext context) {
                 return AuthPageCubit(
-                    initialState: AuthPageState(
-                        currentSubView:
-                            (currentConfiguration as AuthPageConfiguration)
-                                .subPage));
+                  initialState: AuthPageState(
+                      currentSubView:
+                          (currentConfiguration as AuthPageConfiguration)
+                              .subPage),
+                );
               },
               child: AuthPage(),
             ),
@@ -100,7 +101,7 @@ class AppRouterDelegate extends RouterDelegate<PageConfiguration>
       //   ];
       default:
         return [
-          _createContentInPage(LandingPage(), currentConfiguration),
+          _createContentInPage(HomePage(), currentConfiguration),
         ];
     }
   }

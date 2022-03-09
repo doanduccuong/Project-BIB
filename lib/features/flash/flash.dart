@@ -1,14 +1,10 @@
 import 'package:base_flutter/commands/base_command.dart';
-import 'package:base_flutter/components/text_bold.dart';
-import 'package:base_flutter/components/text_normal.dart';
-import 'package:base_flutter/configs/colors.dart';
-import 'package:base_flutter/configs/images.dart';
-import 'package:base_flutter/features/landing/widgets/button.dart';
+
+
 import 'package:base_flutter/models/main_app_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
+
 
 class FlashScreen extends StatefulWidget {
   @override

@@ -1,10 +1,11 @@
-import 'package:base_flutter/data/repositories/user_repository.dart';
+
 import 'package:base_flutter/features/authentication/pages/authentication/bloc/auth_page_cubit.dart';
 import 'package:base_flutter/features/authentication/pages/authentication/bloc/auth_page_state.dart';
 import 'package:base_flutter/features/authentication/views/forgot_password/forgot_password_page.dart';
+import 'package:base_flutter/features/authentication/views/login_page/login_page.dart';
 import 'package:base_flutter/features/authentication/views/reset_password/reset_password_form.dart';
-import 'package:base_flutter/features/authentication/views/sign_in/bloc/sign_in_cubit.dart';
-import 'package:base_flutter/features/authentication/views/sign_in/sign_in_form.dart';
+
+
 import 'package:base_flutter/features/authentication/views/sign_up/sign_up_form.dart';
 import 'package:base_flutter/routing/page_configurations/auth_page_configuration.dart';
 import 'package:base_flutter/shared/widgets/layout.dart';
@@ -44,11 +45,11 @@ class _AuthPageState extends State<AuthPage> {
         Expanded(
           child: BlocBuilder<AuthPageCubit, AuthPageState>(
               builder: (context, state) {
-            return Padding(
-              padding: EdgeInsets.symmetric(horizontal: 32.0.h),
-              child: _authSubView(state),
-            );
-          }),
+                return Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 32.0.h),
+                  child: _authSubView(state),
+                );
+              }),
         ),
       ],
     );
@@ -79,7 +80,7 @@ class _AuthPageState extends State<AuthPage> {
   Widget _authSubView(AuthPageState state) {
     switch (state.currentSubView) {
       case AuthPageSubPage.login:
-        return _signInSubView();
+        return LogInPage();
       case AuthPageSubPage.register:
         return SignUpForm();
       case AuthPageSubPage.resetPassword:
@@ -89,12 +90,4 @@ class _AuthPageState extends State<AuthPage> {
     }
   }
 
-  Widget _signInSubView() {
-    return BlocProvider<SignInCubit>(
-      create: (context) {
-        return SignInCubit(userRepository: context.read<UserRepository>());
-      },
-      child: SignInForm(),
-    );
-  }
 }

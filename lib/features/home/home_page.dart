@@ -1,16 +1,15 @@
-import 'package:base_flutter/commands/base_command.dart';
+
 import 'package:base_flutter/components/text_bold.dart';
 import 'package:base_flutter/components/text_normal.dart';
 import 'package:base_flutter/configs/colors.dart';
 import 'package:base_flutter/configs/images.dart';
-import 'package:base_flutter/features/landing/widgets/button.dart';
-import 'package:base_flutter/features/login_page/login_page.dart';
-import 'package:base_flutter/features/main/pages/main_page.dart';
-import 'package:base_flutter/features/history/pages/history_page.dart';
-import 'package:base_flutter/features/profile/pages/profile_page.dart';
-import 'package:base_flutter/features/setting/pages/setting_page.dart';
+import 'package:base_flutter/features/authentication/views/login_page/login_page.dart';
+import 'package:base_flutter/widget/button.dart';
+
+
+
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'package:flutter_svg/svg.dart';
 
 class HomePage extends StatefulWidget {

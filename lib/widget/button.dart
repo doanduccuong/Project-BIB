@@ -21,14 +21,14 @@ class Button extends StatelessWidget {
       onTap: callBack,
       child: Container(
         alignment: Alignment.center,
-        height: height??46.h,
-        width: width??335.w,
+        height: height??46,
+        width: width??335,
         decoration: BoxDecoration(
           color: backGroundColor??AppColors.textColor,
-          borderRadius: BorderRadius.circular(8.r),
+          borderRadius: BorderRadius.circular(8),
           border: Border.all(color: AppColors.textColor)
         ),
-        child: TextBold(title: title,size: textSize??14.sp,colors: textColor??AppColors.startGradient,),
+        child: TextBold(title: title,size: textSize??14,colors: textColor??AppColors.startGradient,),
       ),
     );
   }
