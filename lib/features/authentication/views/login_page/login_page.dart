@@ -4,8 +4,11 @@ import 'package:base_flutter/configs/colors.dart';
 import 'package:base_flutter/configs/images.dart';
 import 'package:base_flutter/features/authentication/views/login_page/provider/login_page_provider.dart';
 import 'package:base_flutter/features/authentication/views/login_page/widget/remember_box.dart';
+import 'package:base_flutter/features/authentication/views/reset_password/reset_password_form.dart';
 import 'package:base_flutter/features/email_check/email_check.dart';
+import 'package:base_flutter/features/home/home_page.dart';
 import 'package:base_flutter/widget/button.dart';
+import 'package:base_flutter/widget/navigator_back_arrrow.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
@@ -60,17 +63,21 @@ class _LogInPageState extends State<LogInPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              IconButton(
-                splashColor: Colors.transparent,
-                highlightColor: Colors.transparent,
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                icon:  Icon(
-                  Icons.arrow_back,
-                  color: AppColors.startGradient,
+            IconButton(
+            splashColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+            icon: const Icon(
+              Icons.arrow_back,
+              color: AppColors.startGradient,
+            ),
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => HomePage(),
                 ),
-              ),
+              );
+            },
+          ),
               SizedBox(
                 height: 66,
               ),
@@ -173,6 +180,13 @@ class _LogInPageState extends State<LogInPage> {
                   ),
                   SizedBox(width: 140),
                   InkWell(
+                    onTap: (){
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => ResetPassword(),
+                        ),
+                      );
+                    },
                     child: TextNormal(
                       title: 'Forgot Password?',
                       size: 12,

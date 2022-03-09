@@ -84,7 +84,7 @@ class _AuthPageState extends State<AuthPage> {
       case AuthPageSubPage.register:
         return SignUpForm();
       case AuthPageSubPage.resetPassword:
-        return ResetPasswordForm();
+        return ResetPassword();
       case AuthPageSubPage.forgotPassword:
         return ForgotPassword();
     }
