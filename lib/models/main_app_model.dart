@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:base_flutter/data/models/user/user_model.dart';
 import 'package:base_flutter/data/repositories/user_repository.dart';
 import 'package:base_flutter/routing/page_configurations/home_page_configuration.dart';
-import 'package:base_flutter/routing/page_configurations/landing_page_configuration.dart';
 import 'package:base_flutter/routing/page_configurations/page_configuration.dart';
 import 'package:base_flutter/shared/utils/debouncer.dart';
 import 'package:base_flutter/shared/utils/easy_notifier.dart';

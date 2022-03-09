@@ -61,6 +61,8 @@ class _LogInPageState extends State<LogInPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               IconButton(
+                splashColor: Colors.transparent,
+                highlightColor: Colors.transparent,
                 onPressed: () {
                   Navigator.pop(context);
                 },

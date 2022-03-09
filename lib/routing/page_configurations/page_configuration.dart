@@ -1,10 +1,8 @@
 import 'package:base_flutter/routing/page_configurations/auth_page_configuration.dart';
+
 import 'package:base_flutter/routing/page_configurations/home_page_configuration.dart';
-import 'package:base_flutter/routing/page_configurations/landing_page_configuration.dart';
-import 'package:meta/meta.dart';
 
 const String AuthPath = '/auth';
-// const String HomePath = '/home';
 const String HomePath = '/home';
 const String MealPath = '/meal';
 const String MealDetailPath = '/meal/:id';
@@ -16,8 +14,7 @@ const String VerifyCodePath = '/verify-code';
 
 enum Pages {
   Authenticate,
-  // Home,
-  Landing,
+  Home,
   Meal,
   MealDetail,
   Inventory,
@@ -46,8 +43,6 @@ abstract class PageConfiguration {
     switch (path) {
       case AuthPath:
         return AuthPageConfiguration.fromLocation(location);
-      // case HomePath:
-      //   return HomePageConfiguration.fromLocation(location);
       default:
         return HomePageConfiguration.fromLocation(location);
     }
