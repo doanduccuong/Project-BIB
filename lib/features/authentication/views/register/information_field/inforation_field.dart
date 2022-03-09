@@ -114,12 +114,12 @@ class _InformationFieldState extends State<InformationField>
                   controller: _tabController,
                   tabs: [
                     Tab(
-                      text: 'Place Bid',
+                      text: 'Inhouse',
                     ),
 
                     // second tab [you can add an icon using the icon property]
                     Tab(
-                      text: 'Buy Now',
+                      text: 'Agency',
                     ),
                   ],
                 ),
