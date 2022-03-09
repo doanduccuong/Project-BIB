@@ -50,4 +50,9 @@ class LogInScreenProvider with ChangeNotifier {
     _obscureTextValue=!_obscureTextValue;
     notifyListeners();
   }
+
+  //complete fill two text form field and change the color of button
+  bool _isFill=false;
+  bool get isFill=>_isFill;
+
 }

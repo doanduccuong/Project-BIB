@@ -548,6 +548,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "intl_phone_field",
+      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/intl_phone_field-3.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "io",
       "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/io-1.0.3",
       "packageUri": "lib/",
@@ -992,7 +998,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2022-03-08T10:16:55.112731Z",
+  "generated": "2022-03-09T10:04:19.792032Z",
   "generator": "pub",
   "generatorVersion": "2.15.1"
 }

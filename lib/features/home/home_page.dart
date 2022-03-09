@@ -4,6 +4,7 @@ import 'package:base_flutter/components/text_normal.dart';
 import 'package:base_flutter/configs/colors.dart';
 import 'package:base_flutter/configs/images.dart';
 import 'package:base_flutter/features/authentication/views/login_page/login_page.dart';
+import 'package:base_flutter/features/authentication/views/register/register.dart';
 import 'package:base_flutter/widget/button.dart';
 
 
@@ -44,7 +45,7 @@ class _HomePageState extends State<HomePage> {
                 Padding(
                   padding: EdgeInsets.only(left: 57),
                   child: SvgPicture.asset(
-                    AppImage.appLogoColorImage,
+                    AppImage.appLogoImage,
                   ),
                 ),
                 SizedBox(height: 75),
@@ -67,6 +68,19 @@ class _HomePageState extends State<HomePage> {
                 ),
                 SizedBox(height: 15),
                 Button(
+                  borderColor: AppColors.textColor,
+                  callBack: (){
+                    try{
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => Register(),
+                        ),
+                      );
+                    }
+                    catch(e){
+                      print(e);
+                    }
+                  },
                   title: 'Register',
                   backGroundColor: Colors.transparent,
                   textColor: AppColors.textColor,

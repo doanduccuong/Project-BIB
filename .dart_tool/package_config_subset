@@ -350,6 +350,10 @@ intl
 2.12
 file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/intl-0.17.0/
 file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/intl-0.17.0/lib/
+intl_phone_field
+2.12
+file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/intl_phone_field-3.0.1/
+file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/intl_phone_field-3.0.1/lib/
 io
 2.12
 file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/io-1.0.3/
@@ -656,6 +660,6 @@ file:///C:/src/flutter/packages/flutter_web_plugins/
 file:///C:/src/flutter/packages/flutter_web_plugins/lib/
 base_flutter
 2.12
-file:///D:/template%20project/
-file:///D:/template%20project/lib/
+file:///E:/Project%20BIB/
+file:///E:/Project%20BIB/lib/
 2

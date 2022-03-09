@@ -8,7 +8,6 @@ import 'package:base_flutter/features/authentication/views/reset_password/reset_
 import 'package:base_flutter/features/email_check/email_check.dart';
 import 'package:base_flutter/features/home/home_page.dart';
 import 'package:base_flutter/widget/button.dart';
-import 'package:base_flutter/widget/navigator_back_arrrow.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
@@ -45,6 +44,12 @@ class _LogInPageState extends State<LogInPage> {
     _passwordFocusNode = FocusNode();
     _emailController= TextEditingController();
     _passWordController= TextEditingController();
+    _emailController.addListener(() {
+      setState(() {}); // setState every time text changes
+    });
+    _passWordController.addListener(() {
+      setState(() {}); // setState every time text changes
+    });
     super.initState();
   }
   @override
@@ -84,8 +89,7 @@ class _LogInPageState extends State<LogInPage> {
               Align(
                 alignment: Alignment.center,
                 child: SvgPicture.asset(
-                  AppImage.appLogoImage,
-                  color: AppColors.startGradient,
+                  AppImage.appLogoColorImage,
                 ),
               ),
               SizedBox(
@@ -203,15 +207,8 @@ class _LogInPageState extends State<LogInPage> {
                 },
                 child: Button(
                   title: 'Login',
-                  backGroundColor: context
-                      .watch<LogInScreenProvider>()
-                      .isValidPassword ==
-                      true &&
-                      context.watch<LogInScreenProvider>().isValidEmail ==
-                          true
-                      ? AppColors.startGradient
-                      : AppColors.fillColor,
                   textColor: AppColors.textColor,
+                  backGroundColor: _passWordController.text!=''&&_emailController.text!=''?AppColors.startGradient:AppColors.fillColor
                 ),
               ),
             ],

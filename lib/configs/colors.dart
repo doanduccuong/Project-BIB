@@ -12,4 +12,5 @@ class AppColors{
   static const Color cPrimaryColor=Color(0xFFFF8600);
   static const Color unFocusOTPColor=Color(0xFFABB4BD);
   static const Color otpInputColor=Color(0xFF1D2029);
+  static const Color innerBorder=Color(0xFFBFC0E0);
 }

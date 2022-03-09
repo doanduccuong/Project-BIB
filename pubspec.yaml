@@ -40,6 +40,7 @@ dependencies:
   statsfl: ^2.0.1-nullsafety
   darq: ^1.0.0-dev.3
   sized_context: ^1.0.0-nullsafety
+  intl_phone_field: ^3.0.0
   flutter_svg:
   cached_network_image:
   xdg_directories:

@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:base_flutter/commands/base_command.dart';
+import 'package:base_flutter/features/authentication/views/register/provider/register_provider.dart';
 import 'package:base_flutter/features/authentication/views/reset_password/provider/reset_password_provider.dart';
 import 'package:base_flutter/models/main_app_model.dart';
 import 'package:base_flutter/routing/app_route_parser.dart';
@@ -44,6 +45,7 @@ void main() async {
       ChangeNotifierProvider.value(value: mainAppState),
       ChangeNotifierProvider(create: (_) => LogInScreenProvider()),
       ChangeNotifierProvider(create: (_) => ResetPasswordProvider()),
+      ChangeNotifierProvider(create: (_) => RegisterProvider()),
     ],
     child: _AppBootstrapper(),
   ));
