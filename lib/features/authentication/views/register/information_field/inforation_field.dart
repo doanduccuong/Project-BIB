@@ -128,16 +128,14 @@ class _InformationFieldState extends State<InformationField>
                 height: 305.75,
                 child: TabBarView(controller: _tabController, children: [
                   Container(
-                    child: ListView.builder(itemBuilder: (context,index){
+                    child: ListView.builder(itemBuilder: (context, index) {
                       return Container(
                         height: 47.5,
                         width: 295.5,
                         child: Column(
                           children: [
                             Column(
-                              children: [
-
-                              ],
+                              children: [],
                             )
                           ],
                         ),
@@ -149,7 +147,6 @@ class _InformationFieldState extends State<InformationField>
                   Icon(Icons.height)
                 ]),
               ),
-
 
               SizedBox(
                 height: 24,
@@ -234,7 +231,8 @@ class _InformationFieldState extends State<InformationField>
                 title: 'Register',
                 backGroundColor: AppColors.startGradient,
                 textColor: AppColors.textColor,
-              )
+              ),
+              SizedBox(height: 61,)
             ],
           ),
         )
