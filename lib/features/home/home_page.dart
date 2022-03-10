@@ -1,26 +1,19 @@
-
 import 'package:base_flutter/components/text_bold.dart';
 import 'package:base_flutter/components/text_normal.dart';
 import 'package:base_flutter/configs/colors.dart';
 import 'package:base_flutter/configs/images.dart';
+import 'package:base_flutter/data/api/local_api/local_auth_api.dart';
 import 'package:base_flutter/features/authentication/views/login_page/login_page.dart';
 import 'package:base_flutter/features/authentication/views/register/register.dart';
 import 'package:base_flutter/widget/button.dart';
-
-
 
 import 'package:flutter/material.dart';
 
 import 'package:flutter_svg/svg.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -69,15 +62,14 @@ class _HomePageState extends State<HomePage> {
                 SizedBox(height: 15),
                 Button(
                   borderColor: AppColors.textColor,
-                  callBack: (){
-                    try{
+                  callBack: () {
+                    try {
                       Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (context) => Register(),
                         ),
                       );
-                    }
-                    catch(e){
+                    } catch (e) {
                       print(e);
                     }
                   },
@@ -85,14 +77,24 @@ class _HomePageState extends State<HomePage> {
                   backGroundColor: Colors.transparent,
                   textColor: AppColors.textColor,
                 ),
-                SizedBox(height: 40,),
+                SizedBox(
+                  height: 40,
+                ),
                 Align(
                   alignment: Alignment.center,
                   child: InkWell(
                     splashColor: Colors.transparent,
                     highlightColor: Colors.transparent,
-                    onTap: (){
+                    onTap: () async {
+                      final isAuthenticated = await LocalAuthApi.authenticate();
 
+                      if (isAuthenticated) {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => Register(),
+                          ),
+                        );
+                      }
                     },
                     child: Container(
                       height: 62.25,

@@ -139,7 +139,7 @@ class _LogInPageState extends State<LogInPage> {
                     TextFormField(
                       controller: _passWordController,
                       obscureText: Provider.of<LogInScreenProvider>(context,
-                          listen: false)
+                          listen: true)
                           .obscureTextValue,
                       key: const ValueKey('password'),
                       keyboardType: TextInputType.visiblePassword,

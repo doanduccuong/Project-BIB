@@ -614,6 +614,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "local_auth",
+      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/local_auth-1.1.11",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
       "name": "logging",
       "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/logging-1.0.1",
       "packageUri": "lib/",
@@ -1028,7 +1034,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2022-03-10T07:40:40.130834Z",
+  "generated": "2022-03-10T09:01:56.029649Z",
   "generator": "pub",
   "generatorVersion": "2.15.1"
 }

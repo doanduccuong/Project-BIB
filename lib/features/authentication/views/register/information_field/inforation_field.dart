@@ -223,7 +223,7 @@ class _InformationFieldState extends State<InformationField>
                     context.watch<RegisterProvider>().passwordController,
               ),
 
-              //company field
+             SizedBox(height: 22,),
 
               //confirm password field
               RequiredTitle(title: 'Confirm password'),

@@ -394,6 +394,10 @@ loader_overlay
 2.12
 file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/loader_overlay-2.0.2+1/
 file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/loader_overlay-2.0.2+1/lib/
+local_auth
+2.14
+file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/local_auth-1.1.11/
+file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/local_auth-1.1.11/lib/
 logging
 2.12
 file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/logging-1.0.1/
