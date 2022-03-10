@@ -1,5 +1,6 @@
 import 'package:base_flutter/components/text_normal.dart';
 import 'package:base_flutter/configs/colors.dart';
+import 'package:base_flutter/features/success_page/success_page.dart';
 import 'package:base_flutter/widget/button.dart';
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
@@ -9,7 +10,7 @@ import 'package:pin_code_fields/pin_code_fields.dart';
 
 
 class OTPHandler extends StatelessWidget {
-  const OTPHandler({Key? key}) : super(key: key);
+  const       OTPHandler({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +33,13 @@ class OTPHandler extends StatelessWidget {
           height: 45,
         ),
         Button(
+          callBack: (){
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => SuccessPage(),
+              ),
+            );
+          },
           title: 'Verify',
           textColor: AppColors.textColor,
           backGroundColor: AppColors.startGradient,

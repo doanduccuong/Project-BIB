@@ -2,18 +2,10 @@ import 'package:base_flutter/components/text_bold.dart';
 import 'package:base_flutter/configs/colors.dart';
 import 'package:base_flutter/features/authentication/views/register/information_field/inforation_field.dart';
 import 'package:base_flutter/features/home/home_page.dart';
-import 'package:base_flutter/widget/navigator_back_arrrow.dart';
 import 'package:flutter/material.dart';
 
-class Register extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() {
-    return new _RegisterState();
-  }
-}
+class Register extends StatelessWidget {
 
-class _RegisterState extends State<Register> {
-  // final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     // AppTheme theme = Provider.of(context);

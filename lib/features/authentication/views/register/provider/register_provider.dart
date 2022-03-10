@@ -1,24 +1,37 @@
 import 'package:flutter/cupertino.dart';
 
 class RegisterProvider extends ChangeNotifier {
-  final _formKey = GlobalKey<FormState>();
-  GlobalKey<FormState> get formKey=>_formKey;
+
 
   //full name controller
   TextEditingController _fullNameController = TextEditingController();
   get fullNameController=>_fullNameController;
   bool validateFullName=false;
-  void checkValidateFullName(String fullName){
-    if(fullName==''){
-      validateFullName=false;
-    }else{
-      validateFullName=true;
-    }
-  }
+  // void checkValidateFullName(String fullName){
+  //   if(fullName==''){
+  //     validateFullName=false;
+  //     notifyListeners();
+  //   }else{
+  //     validateFullName=true;
+  //     notifyListeners();
+  //   }
+  // }
 
   //email controller
   TextEditingController _emailController = TextEditingController();
   get emailController=>_emailController;
+  bool validateEmail=false;
+  // void checkValidateEmail(String value){
+  //   if(value.contains('@')&&value.contains('.com')){
+  //     validateEmail=true;
+  //     notifyListeners();
+  //   }
+  //   else
+  //     {
+  //       validateEmail=false;
+  //       notifyListeners();
+  //     }
+  // }
 
   //mobile number controller
   TextEditingController _mobileNumberController = TextEditingController();
@@ -57,5 +70,28 @@ void selectRole(String role){
   _roleSelected=role;
   notifyListeners();
 }
+
+//check password the same
+  bool _isTheSame=false;
+  bool get isTheSame=>_isTheSame;
+
+
+  void checkTheSame(){
+    print("The new password is "+passwordController.text);
+    print("The confirm password is "+confirmPasswordController.text);
+
+
+
+    if(passwordController.text==confirmPasswordController.text){
+      print("the same");
+      _isTheSame=true;
+      notifyListeners();
+    }
+    else {
+      _isTheSame=false;
+      print("not the same");
+      notifyListeners();
+    }
+  }
 
 }

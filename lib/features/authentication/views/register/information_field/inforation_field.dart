@@ -1,6 +1,10 @@
 import 'package:base_flutter/components/text_normal.dart';
 import 'package:base_flutter/configs/colors.dart';
 import 'package:base_flutter/features/authentication/views/register/provider/register_provider.dart';
+import 'package:base_flutter/features/authentication/views/register/tab_view/agency_tab.dart';
+import 'package:base_flutter/features/authentication/views/register/tab_view/inhouse_tab.dart';
+import 'package:base_flutter/features/authentication/views/register/widget/required_title.dart';
+import 'package:base_flutter/features/send_otp/send_otp.dart';
 import 'package:base_flutter/widget/button.dart';
 
 import 'package:flutter/material.dart';
@@ -16,12 +20,21 @@ class InformationField extends StatefulWidget {
 
 class _InformationFieldState extends State<InformationField>
     with SingleTickerProviderStateMixin {
+  final _formKey = GlobalKey<FormState>();
+  int _selectedTab = 0;
   final String sales = 'Sales';
   final String supervisor = 'Supervisor';
   late TabController _tabController;
   @override
   void initState() {
     _tabController = TabController(length: 2, vsync: this);
+    _tabController.addListener(() {
+      if (!_tabController.indexIsChanging) {
+        setState(() {
+          _selectedTab = _tabController.index;
+        });
+      }
+    });
     // TODO: implement initState
     super.initState();
   }
@@ -39,34 +52,37 @@ class _InformationFieldState extends State<InformationField>
     return Column(
       children: [
         Form(
-          key: context.watch<RegisterProvider>().formKey,
+          key: _formKey,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // full name field
-              TextNormal(
-                title: 'Full Name *',
-                colors: AppColors.aPrimaryColor,
-                size: 12,
-              ),
+              RequiredTitle(title: 'Full Name'),
               TextFormField(
                 validator: (value) {
-                  context
-                      .read<RegisterProvider>()
-                      .checkValidateFullName(value!);
+
+                  if(value!.isNotEmpty){
+                    return null;
+
+                  }else return 'Error name';
                 },
                 decoration: InputDecoration(fillColor: Color(0xFF393A4A)),
                 controller:
                     context.watch<RegisterProvider>().fullNameController,
               ),
+              SizedBox(
+                height: 23,
+              ),
 
               //email field
-              TextNormal(
-                title: 'Email *',
-                colors: AppColors.aPrimaryColor,
-                size: 12,
-              ),
+              RequiredTitle(title: 'Email'),
               TextFormField(
+                validator: (value){
+                 if(value!.contains('@')&&value.contains('.com')){
+                   return null;
+                 }
+                 else return 'Error Email';
+                },
                 decoration: InputDecoration(
                   fillColor: Color(0xFF393A4A),
                 ),
@@ -75,14 +91,20 @@ class _InformationFieldState extends State<InformationField>
               SizedBox(
                 height: 23,
               ),
+
               //mobile number field
-              TextNormal(
-                title: 'Mobile number *',
-                colors: AppColors.aPrimaryColor,
-                size: 12,
-              ),
+              RequiredTitle(title: 'Mobile Number'),
               IntlPhoneField(
-                disableLengthCheck: true,
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                controller: context.watch<RegisterProvider>().mobileNumberController,
+                validator: (value){
+                  if(value!.length!=10){
+                    return 'Error mobile number';
+                  }
+                  else return null;
+                },
+
+                 disableLengthCheck: true,
                 showCountryFlag: false,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
@@ -104,48 +126,33 @@ class _InformationFieldState extends State<InformationField>
                 width: 334,
                 height: 34.52,
                 child: TabBar(
-                  unselectedLabelColor: AppColors.aPrimaryColor,
-                  indicator: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(8),
-                        topRight: Radius.circular(8),
-                      ),
-                      color: AppColors.startGradient),
+                  unselectedLabelColor: AppColors.bPrimaryColor,
+                  labelColor: AppColors.startGradient,
+                  indicatorColor: AppColors.dPrimaryColor,
                   controller: _tabController,
+                  labelPadding: const EdgeInsets.all(0.0),
                   tabs: [
-                    Tab(
-                      text: 'Inhouse',
+                    _getTab(
+                      0,
+                      Text('Inhouse'),
                     ),
-
-                    // second tab [you can add an icon using the icon property]
-                    Tab(
-                      text: 'Agency',
+                    _getTab(
+                      1,
+                      Text('Agency'),
                     ),
                   ],
                 ),
               ),
               Container(
+                padding: EdgeInsets.only(
+                  right: 20,
+                ),
                 height: 305.75,
-                child: TabBarView(controller: _tabController, children: [
-                  Container(
-                    child: ListView.builder(itemBuilder: (context, index) {
-                      return Container(
-                        height: 47.5,
-                        width: 295.5,
-                        child: Column(
-                          children: [
-                            Column(
-                              children: [],
-                            )
-                          ],
-                        ),
-                      );
-                    }),
-                    height: 305.75,
-                    width: 334,
-                  ),
-                  Icon(Icons.height)
-                ]),
+                width: MediaQuery.of(context).size.width * 0.91,
+                child: TabBarView(
+                  controller: _tabController,
+                  children: [InHouseTab(), AgencyTab()],
+                ),
               ),
 
               SizedBox(
@@ -200,13 +207,18 @@ class _InformationFieldState extends State<InformationField>
                 height: 23,
               ),
               // password field
-              TextNormal(
-                title: 'Password*',
-                colors: AppColors.aPrimaryColor,
-                size: 12,
-              ),
+              RequiredTitle(title: 'Password'),
               TextFormField(
-                decoration: InputDecoration(fillColor: Color(0xFF393A4A)),
+                validator: (value){
+                  if (value == '') {
+                    return 'Error new password';
+                  } else {
+                    return null;
+                  }
+                },
+                decoration: InputDecoration(
+                  fillColor: Color(0xFF393A4A),
+                ),
                 controller:
                     context.watch<RegisterProvider>().passwordController,
               ),
@@ -214,12 +226,18 @@ class _InformationFieldState extends State<InformationField>
               //company field
 
               //confirm password field
-              TextNormal(
-                title: 'Confirm password *',
-                colors: AppColors.aPrimaryColor,
-                size: 12,
-              ),
+              RequiredTitle(title: 'Confirm password'),
               TextFormField(
+                validator: (value){
+                  if (context.read<RegisterProvider>().isTheSame ==
+                      false) {
+                    return 'Confirm password is not match';
+                  }
+                  if (value == '') {
+                    return 'Error confirm password';
+                  }
+                  return null;
+                },
                 decoration: InputDecoration(fillColor: Color(0xFF393A4A)),
                 controller:
                     context.watch<RegisterProvider>().confirmPasswordController,
@@ -228,15 +246,65 @@ class _InformationFieldState extends State<InformationField>
                 height: 37,
               ),
               Button(
+                callBack: (){
+                  context.read<RegisterProvider>().checkTheSame();
+                  _onSubmitForm();
+                },
                 title: 'Register',
                 backGroundColor: AppColors.startGradient,
                 textColor: AppColors.textColor,
               ),
-              SizedBox(height: 61,)
+              SizedBox(
+                height: 61,
+              )
             ],
           ),
         )
       ],
     );
   }
+
+  _getTab(index, child) {
+    return Tab(
+      child: SizedBox.expand(
+        child: Container(
+          alignment: Alignment.center,
+          child: child,
+          decoration: BoxDecoration(
+              color: (_selectedTab == index
+                  ? AppColors.dPrimaryColor
+                  : AppColors.fillColor),
+              borderRadius: _generateBorderRadius(index),
+              border: _selectedTab == index
+                  ? Border.all(color: AppColors.bPrimaryColor)
+                  : null),
+        ),
+      ),
+    );
+  }
+
+  _generateBorderRadius(index) {
+    if ((index + 1) == _selectedTab)
+      return BorderRadius.only(
+        topLeft: Radius.circular(4.0),
+        topRight: Radius.circular(4.0),
+      );
+    else if ((index - 1) == _selectedTab)
+      return BorderRadius.only(bottomLeft: Radius.circular(4.0));
+    else
+      return BorderRadius.zero;
+  }
+  void _onSubmitForm() {
+    final isValid = _formKey.currentState?.validate();
+    FocusScope.of(context).unfocus();
+    if (isValid == true) {
+      _formKey.currentState?.save();
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => SendOTP(),
+        ),
+      );
+    }
+  }
+
 }
