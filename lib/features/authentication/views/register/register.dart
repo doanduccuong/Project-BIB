@@ -14,7 +14,7 @@ class Register extends StatelessWidget {
         backgroundColor: AppColors.textColor,
         body: SingleChildScrollView(
           child: Container(
-            padding: EdgeInsets.only(left: 22),
+            padding: EdgeInsets.only(left: 22,right: 22),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

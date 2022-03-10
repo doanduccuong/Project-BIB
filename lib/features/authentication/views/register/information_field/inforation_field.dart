@@ -60,11 +60,10 @@ class _InformationFieldState extends State<InformationField>
               RequiredTitle(title: 'Full Name'),
               TextFormField(
                 validator: (value) {
-
-                  if(value!.isNotEmpty){
+                  if (value!.isNotEmpty) {
                     return null;
-
-                  }else return 'Error name';
+                  } else
+                    return 'Error name';
                 },
                 decoration: InputDecoration(fillColor: Color(0xFF393A4A)),
                 controller:
@@ -77,11 +76,11 @@ class _InformationFieldState extends State<InformationField>
               //email field
               RequiredTitle(title: 'Email'),
               TextFormField(
-                validator: (value){
-                 if(value!.contains('@')&&value.contains('.com')){
-                   return null;
-                 }
-                 else return 'Error Email';
+                validator: (value) {
+                  if (value!.contains('@') && value.contains('.com')) {
+                    return null;
+                  } else
+                    return 'Error Email';
                 },
                 decoration: InputDecoration(
                   fillColor: Color(0xFF393A4A),
@@ -94,26 +93,27 @@ class _InformationFieldState extends State<InformationField>
 
               //mobile number field
               RequiredTitle(title: 'Mobile Number'),
-              IntlPhoneField(
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                controller: context.watch<RegisterProvider>().mobileNumberController,
-                validator: (value){
-                  if(value!.length!=10){
-                    return 'Error mobile number';
-                  }
-                  else return null;
-                },
-
-                 disableLengthCheck: true,
-                showCountryFlag: false,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide.none,
+              SizedBox(height: 20,),
+              Container(
+                height: 27,
+                width: 335,
+                child: IntlPhoneField(
+                  autovalidateMode: AutovalidateMode.disabled,
+                  controller: context.watch<RegisterProvider>().mobileNumberController,
+                  dropdownIconPosition: IconPosition.trailing,
+                  disableLengthCheck: true,
+                  showCountryFlag: false,
+                  decoration: InputDecoration(
+                    errorText: context.watch<RegisterProvider>().isValidatePhoneNumber==true?null:'Error phone number',
+                    border: OutlineInputBorder(borderSide: BorderSide.none),
                   ),
+                  onChanged: (phone) {
+                    print(phone.completeNumber);
+                  },
                 ),
-                onChanged: (phone) {
-                  print(phone.completeNumber);
-                },
+              ),
+              Divider(
+                thickness: 1,
               ),
 
               //company field
@@ -209,7 +209,7 @@ class _InformationFieldState extends State<InformationField>
               // password field
               RequiredTitle(title: 'Password'),
               TextFormField(
-                validator: (value){
+                validator: (value) {
                   if (value == '') {
                     return 'Error new password';
                   } else {
@@ -228,9 +228,8 @@ class _InformationFieldState extends State<InformationField>
               //confirm password field
               RequiredTitle(title: 'Confirm password'),
               TextFormField(
-                validator: (value){
-                  if (context.read<RegisterProvider>().isTheSame ==
-                      false) {
+                validator: (value) {
+                  if (context.read<RegisterProvider>().isTheSame == false) {
                     return 'Confirm password is not match';
                   }
                   if (value == '') {
@@ -246,7 +245,8 @@ class _InformationFieldState extends State<InformationField>
                 height: 37,
               ),
               Button(
-                callBack: (){
+                callBack: () {
+                  context.read<RegisterProvider>().checkValidatePhoneNumber();
                   context.read<RegisterProvider>().checkTheSame();
                   _onSubmitForm();
                 },
@@ -294,6 +294,7 @@ class _InformationFieldState extends State<InformationField>
     else
       return BorderRadius.zero;
   }
+
   void _onSubmitForm() {
     final isValid = _formKey.currentState?.validate();
     FocusScope.of(context).unfocus();
@@ -306,5 +307,4 @@ class _InformationFieldState extends State<InformationField>
       );
     }
   }
-
 }

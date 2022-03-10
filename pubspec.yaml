@@ -41,6 +41,7 @@ dependencies:
   darq: ^1.0.0-dev.3
   sized_context: ^1.0.0-nullsafety
   intl_phone_field: ^3.0.0
+  intl_phone_number_input: ^0.7.0+2
   flutter_svg:
   cached_network_image:
   xdg_directories:

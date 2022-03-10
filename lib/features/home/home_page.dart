@@ -85,10 +85,23 @@ class _HomePageState extends State<HomePage> {
                   backGroundColor: Colors.transparent,
                   textColor: AppColors.textColor,
                 ),
-                Container(
-                  padding: EdgeInsets.only(left: 142, top: 42.1),
-                  child: SvgPicture.asset(
-                    AppImage.fingerPrintImage,
+                SizedBox(height: 40,),
+                Align(
+                  alignment: Alignment.center,
+                  child: InkWell(
+                    splashColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: (){
+
+                    },
+                    child: Container(
+                      height: 62.25,
+                      width: 67.5,
+                      alignment: Alignment.center,
+                      child: SvgPicture.asset(
+                        AppImage.fingerPrintImage,
+                      ),
+                    ),
                   ),
                 ),
               ],

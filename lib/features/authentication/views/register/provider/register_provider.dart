@@ -72,7 +72,7 @@ void selectRole(String role){
 }
 
 //check password the same
-  bool _isTheSame=false;
+  bool _isTheSame=true;
   bool get isTheSame=>_isTheSame;
 
 
@@ -94,4 +94,17 @@ void selectRole(String role){
     }
   }
 
+  //error phone number
+bool _isValidatePhoneNumber=true;
+  get isValidatePhoneNumber=>_isValidatePhoneNumber;
+  void checkValidatePhoneNumber(){
+    if(_mobileNumberController.text.length!=10){
+      _isValidatePhoneNumber=false;
+      notifyListeners();
+    }
+    else{
+      _isValidatePhoneNumber=true;
+      notifyListeners();
+    }
+  }
 }

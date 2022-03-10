@@ -554,6 +554,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "intl_phone_number_input",
+      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/intl_phone_number_input-0.7.0+2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "io",
       "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/io-1.0.3",
       "packageUri": "lib/",
@@ -574,6 +580,30 @@
     {
       "name": "json_serializable",
       "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/json_serializable-4.1.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "libphonenumber",
+      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/libphonenumber-2.0.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "libphonenumber_platform_interface",
+      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/libphonenumber_platform_interface-0.3.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "libphonenumber_plugin",
+      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/libphonenumber_plugin-0.2.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "libphonenumber_web",
+      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/libphonenumber_web-0.2.0+1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -921,7 +951,7 @@
     },
     {
       "name": "universal_platform",
-      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/universal_platform-1.0.0-nullsafety",
+      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/universal_platform-1.0.0+1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -998,7 +1028,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2022-03-09T10:04:19.792032Z",
+  "generated": "2022-03-10T07:40:40.130834Z",
   "generator": "pub",
   "generatorVersion": "2.15.1"
 }
