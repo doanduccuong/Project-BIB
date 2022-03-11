@@ -5,12 +5,14 @@ import 'package:base_flutter/configs/images.dart';
 import 'package:base_flutter/features/authentication/views/login_page/provider/login_page_provider.dart';
 import 'package:base_flutter/features/authentication/views/login_page/widget/remember_box.dart';
 import 'package:base_flutter/features/authentication/views/reset_password/reset_password_form.dart';
-import 'package:base_flutter/features/email_check/email_check.dart';
-import 'package:base_flutter/features/home/home_page.dart';
+import 'package:base_flutter/features/home_login/home_login.dart';
+import 'package:base_flutter/features/home_screen/home_screen.dart';
+import 'package:base_flutter/shared/styled_widgets/dialogs/base_dialog.dart';
 import 'package:base_flutter/widget/button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
+
 class LogInPage extends StatefulWidget {
   const LogInPage({Key? key}) : super(key: key);
   @override
@@ -30,7 +32,7 @@ class _LogInPageState extends State<LogInPage> {
       _formKey.currentState?.save();
       Navigator.of(context).push(
         MaterialPageRoute(
-          builder: (context) => EmailCheckPage(),
+          builder: (context) => HomeScreen(),
         ),
       );
     }
@@ -42,8 +44,8 @@ class _LogInPageState extends State<LogInPage> {
     // TODO: implement initState
     _emailFocusNode = FocusNode();
     _passwordFocusNode = FocusNode();
-    _emailController= TextEditingController();
-    _passWordController= TextEditingController();
+    _emailController = TextEditingController();
+    _passWordController = TextEditingController();
     _emailController.addListener(() {
       setState(() {}); // setState every time text changes
     });
@@ -52,6 +54,7 @@ class _LogInPageState extends State<LogInPage> {
     });
     super.initState();
   }
+
   @override
   void dispose() {
     // TODO: implement dispose
@@ -59,30 +62,31 @@ class _LogInPageState extends State<LogInPage> {
     _passWordController.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.only(left: 20, right: 20,top: 20),
+          padding: EdgeInsets.only(left: 20, right: 20, top: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-            IconButton(
-            splashColor: Colors.transparent,
-            highlightColor: Colors.transparent,
-            icon: const Icon(
-              Icons.arrow_back,
-              color: AppColors.startGradient,
-            ),
-            onPressed: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => HomePage(),
+              IconButton(
+                splashColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                icon: const Icon(
+                  Icons.arrow_back,
+                  color: AppColors.startGradient,
                 ),
-              );
-            },
-          ),
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => HomePage(),
+                    ),
+                  );
+                },
+              ),
               SizedBox(
                 height: 66,
               ),
@@ -110,13 +114,18 @@ class _LogInPageState extends State<LogInPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    TextNormal(title: 'Email ID',size: 12,colors: AppColors.aPrimaryColor,),
+                    TextNormal(
+                      title: 'Email ID',
+                      size: 12,
+                      colors: AppColors.aPrimaryColor,
+                    ),
                     //email form feld
                     TextFormField(
                       key: const ValueKey('email'),
                       controller: _emailController,
                       validator: (value) {
-                        Provider.of<LogInScreenProvider>(context,listen: false).isValidEmail;
+                        Provider.of<LogInScreenProvider>(context, listen: false)
+                            .isValidEmail;
                         if (value!.contains("@") && value.contains(".com")) {
                           return null;
                         } else {
@@ -135,11 +144,15 @@ class _LogInPageState extends State<LogInPage> {
                       height: 50,
                     ),
                     //password form field
-                    TextNormal(title: 'Password',size: 12,colors: AppColors.aPrimaryColor,),
+                    TextNormal(
+                      title: 'Password',
+                      size: 12,
+                      colors: AppColors.aPrimaryColor,
+                    ),
                     TextFormField(
                       controller: _passWordController,
                       obscureText: Provider.of<LogInScreenProvider>(context,
-                          listen: true)
+                              listen: true)
                           .obscureTextValue,
                       key: const ValueKey('password'),
                       keyboardType: TextInputType.visiblePassword,
@@ -158,7 +171,7 @@ class _LogInPageState extends State<LogInPage> {
                           highlightColor: Colors.transparent,
                           onTap: () {
                             Provider.of<LogInScreenProvider>(context,
-                                listen: false)
+                                    listen: false)
                                 .toggleObscure();
                           },
                           child: const Icon(
@@ -177,14 +190,21 @@ class _LogInPageState extends State<LogInPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const RememberBox(),
-                  TextNormal(
-                    title: 'Remember',
-                    size: 12,
-                    colors: AppColors.aPrimaryColor,
+                  InkWell(
+                    onTap: () {
+                      showDialog(
+                          context: context,
+                          builder: (context) => BaseStyledDialog());
+                    },
+                    child: TextNormal(
+                      title: 'Remember',
+                      size: 12,
+                      colors: AppColors.aPrimaryColor,
+                    ),
                   ),
                   SizedBox(width: 140),
                   InkWell(
-                    onTap: (){
+                    onTap: () {
                       Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (context) => ResetPassword(),
@@ -206,10 +226,12 @@ class _LogInPageState extends State<LogInPage> {
                   _onSubmitForm();
                 },
                 child: Button(
-                  title: 'Login',
-                  textColor: AppColors.textColor,
-                  backGroundColor: _passWordController.text!=''&&_emailController.text!=''?AppColors.startGradient:AppColors.fillColor
-                ),
+                    title: 'Login',
+                    textColor: AppColors.textColor,
+                    backGroundColor: _passWordController.text != '' &&
+                            _emailController.text != ''
+                        ? AppColors.startGradient
+                        : AppColors.fillColor),
               ),
             ],
           ),

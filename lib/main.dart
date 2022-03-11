@@ -6,6 +6,7 @@ import 'package:base_flutter/features/authentication/views/reset_password/provid
 import 'package:base_flutter/models/main_app_model.dart';
 import 'package:base_flutter/routing/app_route_parser.dart';
 import 'package:base_flutter/routing/app_router.dart';
+import 'package:base_flutter/shared/styled_widgets/dialogs/provider/base_dialog_provider.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -46,6 +47,7 @@ void main() async {
       ChangeNotifierProvider(create: (_) => LogInScreenProvider()),
       ChangeNotifierProvider(create: (_) => ResetPasswordProvider()),
       ChangeNotifierProvider(create: (_) => RegisterProvider()),
+      ChangeNotifierProvider(create: (_) => BaseDialogProvider()),
     ],
     child: _AppBootstrapper(),
   ));

@@ -1,11 +1,10 @@
 import 'package:base_flutter/components/text_bold.dart';
 import 'package:base_flutter/configs/colors.dart';
 import 'package:base_flutter/features/authentication/views/register/information_field/inforation_field.dart';
-import 'package:base_flutter/features/home/home_page.dart';
+import 'package:base_flutter/features/home_login/home_login.dart';
 import 'package:flutter/material.dart';
 
 class Register extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     // AppTheme theme = Provider.of(context);
@@ -14,7 +13,7 @@ class Register extends StatelessWidget {
         backgroundColor: AppColors.textColor,
         body: SingleChildScrollView(
           child: Container(
-            padding: EdgeInsets.only(left: 22,right: 22),
+            padding: EdgeInsets.only(left: 22, right: 22),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

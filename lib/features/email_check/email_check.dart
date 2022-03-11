@@ -1,4 +1,3 @@
-
 import 'dart:async';
 
 import 'package:base_flutter/components/text_bold.dart';
@@ -6,9 +5,7 @@ import 'package:base_flutter/components/text_normal.dart';
 import 'package:base_flutter/configs/colors.dart';
 import 'package:base_flutter/configs/images.dart';
 import 'package:base_flutter/features/authentication/views/forgot_password/forgot_password_page.dart';
-import 'package:base_flutter/features/home/home_page.dart';
-
-
+import 'package:base_flutter/shared/styled_widgets/dialogs/base_dialog.dart';
 
 import 'package:base_flutter/widget/button.dart';
 import 'package:flutter/material.dart';
@@ -30,31 +27,34 @@ class _EmailCheckPageState extends State<EmailCheckPage> {
     super.initState();
     _initializeTimer();
   }
+
   void _initializeTimer() {
-    print("starrt timer");
-    _timer = Timer(const Duration(seconds: 10),_logOutUser);
+    print("start timer");
+    _timer = Timer(const Duration(minutes: 1), _logOutUser);
   }
+
   void _handleUserInteraction([_]) {
-    if (!_timer.isActive) {
+    if (_timer.isActive) {
+      print("Use had touch to the screen");
       _timer.cancel();
 
       // This means the user has been logged out
-      print("Timer is active");
+
       return;
     }
 
     _timer.cancel();
+    _timer = Timer(const Duration(seconds: 10), _logOutUser);
     _initializeTimer();
   }
+
   void _logOutUser() {
-
     print("the user has been logout");
-
 
     _timer.cancel();
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (context) => HomePage(),
+        builder: (context) => BaseStyledDialog(),
       ),
     );
   }
@@ -79,7 +79,7 @@ class _EmailCheckPageState extends State<EmailCheckPage> {
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  icon:  Icon(
+                  icon: Icon(
                     Icons.arrow_back,
                     color: AppColors.startGradient,
                   ),
@@ -106,7 +106,7 @@ class _EmailCheckPageState extends State<EmailCheckPage> {
                 width: 261,
                 child: TextNormal(
                   title:
-                  'We have sent you a reset password link on your registered email address.',
+                      'We have sent you a reset password link on your registered email address.',
                   size: 14,
                   colors: AppColors.aPrimaryColor,
                   isCenter: true,
@@ -118,7 +118,7 @@ class _EmailCheckPageState extends State<EmailCheckPage> {
               Container(
                 alignment: Alignment.center,
                 child: Button(
-                  callBack: (){
+                  callBack: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
                         builder: (context) => ForgotPassword(),
