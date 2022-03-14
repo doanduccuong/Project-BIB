@@ -10,7 +10,7 @@ class ProductStatus extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: 20, top: 20,right: 20),
+      padding: EdgeInsets.only(left: 20, top: 20, right: 20),
       decoration: BoxDecoration(
         color: AppColors.textColor,
         borderRadius: BorderRadius.circular(10),
@@ -57,20 +57,42 @@ class ProductStatus extends StatelessWidget {
               )
             ],
           ),
-          SizedBox(height: 15,),
+          SizedBox(
+            height: 15,
+          ),
           Divider(),
           Row(
             children: [
-              TextNormal(title: 'Transaction date',size: 12,colors: AppColors.textSubduedColor,),
-              SizedBox(width: 86,),
-              TextNormal(title: 'Amount',size: 12,colors: AppColors.textSubduedColor,)
+              TextNormal(
+                title: 'Transaction date',
+                size: 12,
+                colors: AppColors.textSubduedColor,
+              ),
+              SizedBox(
+                width: 86,
+              ),
+              TextNormal(
+                title: 'Amount',
+                size: 12,
+                colors: AppColors.textSubduedColor,
+              )
             ],
           ),
           Row(
             children: [
-              TextBold(title: '24 Feb 2022',size: 12,colors: Colors.black,),
-              SizedBox(width: 108,),
-              TextBold(title: 'Rp 10.000',size: 12,colors: Colors.black,)
+              TextBold(
+                title: '24 Feb 2022',
+                size: 12,
+                colors: Colors.black,
+              ),
+              SizedBox(
+                width: 108,
+              ),
+              TextBold(
+                title: 'Rp 10.000',
+                size: 12,
+                colors: Colors.black,
+              )
             ],
           )
         ],

@@ -6,7 +6,9 @@ import 'package:base_flutter/features/authentication/views/login_page/provider/l
 import 'package:base_flutter/features/authentication/views/login_page/widget/remember_box.dart';
 import 'package:base_flutter/features/authentication/views/reset_password/reset_password_form.dart';
 import 'package:base_flutter/features/home_login/home_login.dart';
-import 'package:base_flutter/features/home_screen/home_screen.dart';
+
+import 'package:base_flutter/features/home_screen/cubit/home_screen_cutbit_logic.dart';
+
 import 'package:base_flutter/shared/styled_widgets/dialogs/base_dialog.dart';
 import 'package:base_flutter/widget/button.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +35,7 @@ class _LogInPageState extends State<LogInPage> {
       _formKey.currentState?.save();
       Navigator.of(context).push(
         MaterialPageRoute(
-          builder: (context) => HomeScreen(),
+          builder: (context) => HomeScreenCubitLogic(),
         ),
       );
     }
@@ -74,21 +76,21 @@ class _LogInPageState extends State<LogInPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-             IconButton(
-               splashColor: Colors.transparent,
-               highlightColor: Colors.transparent,
-               icon: const Icon(
-                 Icons.arrow_back,
-                 color: AppColors.startGradient,
-               ),
-               onPressed: () {
-                 Navigator.of(context).push(
-                   MaterialPageRoute(
-                     builder: (context) => HomePage(),
-                   ),
-                 );
-               },
-             ),
+              IconButton(
+                splashColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                icon: const Icon(
+                  Icons.arrow_back,
+                  color: AppColors.startGradient,
+                ),
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => HomePage(),
+                    ),
+                  );
+                },
+              ),
               SizedBox(
                 height: 66,
               ),
@@ -176,15 +178,15 @@ class _LogInPageState extends State<LogInPage> {
                                     listen: false)
                                 .toggleObscure();
                           },
-                          child: Icon(
-                            Icons.remove_red_eye_outlined,
-                            color: context
-                                        .watch<LogInPageProvider>()
-                                        .obscureIconState ==
-                                    true
-                                ? AppColors.textColorGrey2
-                                : Colors.red,
-                          ),
+                          child:  Icon(
+                                  Icons.remove_red_eye_outlined,
+                                  color: context
+                                              .watch<LogInPageProvider>()
+                                              .obscureIconState ==
+                                          true
+                                      ? AppColors.textColorGrey2
+                                      : Colors.red,
+                                ),
                         ),
                       ),
                       onEditingComplete: _onSubmitForm,
@@ -206,7 +208,9 @@ class _LogInPageState extends State<LogInPage> {
                     child: TextNormal(
                       title: 'Remember',
                       size: 12,
-                      colors: AppColors.aPrimaryColor,
+                      colors: context.watch<LogInPageProvider>().isTick == false
+                          ? AppColors.aPrimaryColor
+                          : AppColors.mainBackGroundColor,
                     ),
                   ),
                   SizedBox(width: 140),

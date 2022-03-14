@@ -6,6 +6,7 @@ Widget unTickBox(){
     height: 14,
     width: 14,
     decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(4),
         border: Border.all(color: AppColors.bPrimaryColor)
     ),
   );

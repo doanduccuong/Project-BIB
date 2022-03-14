@@ -6,9 +6,10 @@ Widget tickBox(){
   return Container(
     height: 14,
     width: 14,
-    child:  Icon(Icons.done,color: AppColors.startGradient,size: 12,),
+    child:  Icon(Icons.done,color: AppColors.mainBackGroundColor,size: 12,),
     decoration: BoxDecoration(
-        border: Border.all(color: AppColors.startGradient)
+      borderRadius: BorderRadius.circular(4),
+        border: Border.all(color: AppColors.mainBackGroundColor)
     ),
 
   );

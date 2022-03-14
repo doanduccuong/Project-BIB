@@ -45,6 +45,7 @@ dependencies:
   intl_phone_number_input: ^0.7.0+2
   flutter_svg:
   cached_network_image:
+
   xdg_directories:
   bitsdojo_window:
   window_size:

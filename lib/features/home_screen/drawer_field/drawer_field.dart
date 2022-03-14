@@ -1,8 +1,10 @@
 import 'package:base_flutter/configs/images.dart';
 import 'package:base_flutter/features/authentication/views/login_page/login_page.dart';
+import 'package:base_flutter/features/home_screen/cubit/home_screen_cubit.dart';
 import 'package:base_flutter/features/home_screen/my_investers/my_investor.dart';
 import 'package:base_flutter/features/home_screen/widget/category_chose.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 class DrawerField extends StatelessWidget {
   const DrawerField({Key? key}) : super(key: key);
 
@@ -35,11 +37,7 @@ class DrawerField extends StatelessWidget {
             ),
             CategoryChose(
               callBack: (){
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => MyInvestors(),
-                  ),
-                );
+                BlocProvider.of<HomeScreenCubit>(context).goInvestors();
               },
               image: AppImage.myInvestorImage,
               title: 'MY INVESTORS',

@@ -16,14 +16,17 @@ class ListContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.only(top: 20,left: 20),
-      child: TextBold(title: title,size: 16,colors: AppColors.fPrimaryColor,),
-      height: height,
-      width: width,
-      decoration: BoxDecoration(
-        color: AppColors.textColor,
-        borderRadius: BorderRadius.circular(4)
+    return Card(
+      elevation: 2,
+      child: Container(
+        padding: EdgeInsets.only(top: 20,left: 20),
+        child: TextBold(title: title,size: 16,colors: AppColors.fPrimaryColor,),
+        height: height,
+        width: width,
+        decoration: BoxDecoration(
+          color: AppColors.textColor,
+          borderRadius: BorderRadius.circular(4)
+        ),
       ),
     );
   }

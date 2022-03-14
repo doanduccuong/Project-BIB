@@ -15,7 +15,7 @@ class AppScaffold extends StatelessWidget {
   AppScaffold(
       {Key? key,
       this.useSafeArea,
-        required this.title,
+      required this.title,
       required this.bodyWidget,
       this.backGroundColor,
       this.padding})
@@ -38,10 +38,11 @@ class AppScaffold extends StatelessWidget {
         toolbarHeight: 95,
         backgroundColor: AppColors.mainBackGroundColor,
         leading: Container(
-            padding: EdgeInsets.only(top: 20),
-            child: NavigatorBackArrow(
-              iconColor: AppColors.textColor,
-            )),
+          padding: EdgeInsets.only(top: 20),
+          child: NavigatorBackArrow(
+            iconColor: AppColors.textColor,
+          ),
+        ),
         flexibleSpace: Container(
           child: Stack(
             children: [
@@ -74,7 +75,7 @@ class AppScaffold extends StatelessWidget {
               padding: padding ?? EdgeInsets.only(),
               child: SafeArea(child: bodyWidget),
             )
-          : Padding(padding:padding??EdgeInsets.only(),child: bodyWidget),
+          : Padding(padding: padding ?? EdgeInsets.only(), child: bodyWidget),
     );
   }
 }
