@@ -13,4 +13,8 @@ class AppImage{
   static const String myProfile="assets/images/my_profile.svg";
   static const String faqImage="assets/images/faq.svg";
   static const String logoHorColorImage="assets/images/logo_hor_color.svg";
+  static const String BIBImage="assets/images/BIB.svg";
+  static const String BIBColorImage="assets/images/BIB_color.svg";
+  static const String BIBBar1Image="assets/images/BIB_bar_1.svg";
+  static const String BIBBar2Image="assets/images/BIB_bar_2.svg";
 }

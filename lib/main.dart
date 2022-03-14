@@ -16,6 +16,7 @@ import 'application.dart';
 import 'commands/bootstrap_command.dart';
 
 import 'features/authentication/views/login_page/provider/login_page_provider.dart';
+import 'features/home_screen/provider/home_screen_provider.dart';
 import 'localizations/app_localizations.dart';
 
 void main() async {
@@ -44,10 +45,11 @@ void main() async {
       Provider.value(value: application.userRepository),
       // App Model - Stores data related to global settings or app modes
       ChangeNotifierProvider.value(value: mainAppState),
-      ChangeNotifierProvider(create: (_) => LogInScreenProvider()),
+      ChangeNotifierProvider(create: (_) => LogInPageProvider()),
       ChangeNotifierProvider(create: (_) => ResetPasswordProvider()),
       ChangeNotifierProvider(create: (_) => RegisterProvider()),
       ChangeNotifierProvider(create: (_) => BaseDialogProvider()),
+      ChangeNotifierProvider(create: (_) => HomeScreenProvider()),
     ],
     child: _AppBootstrapper(),
   ));

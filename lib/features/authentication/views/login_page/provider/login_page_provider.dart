@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-class LogInScreenProvider with ChangeNotifier {
+class LogInPageProvider extends ChangeNotifier {
   bool _isTick = false;
   bool get isTick => _isTick;
 
@@ -52,7 +52,25 @@ class LogInScreenProvider with ChangeNotifier {
   }
 
   //complete fill two text form field and change the color of button
-  bool _isFill=false;
-  bool get isFill=>_isFill;
+  // bool _isFill=false;
+  // bool get isFill=>_isFill;
+
+// chang the color of obscure icon
+  bool _obscureIconState=true;
+  bool get obscureIconState=>_obscureIconState;
+  void falseState(){
+    _obscureIconState=false;
+    notifyListeners();
+  }
+
+  void trueState(){
+    _obscureIconState=true;
+    notifyListeners();
+  }
+
+
+
+
+
 
 }

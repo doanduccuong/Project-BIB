@@ -29,6 +29,7 @@ class _LogInPageState extends State<LogInPage> {
     final isValid = _formKey.currentState?.validate();
     FocusScope.of(context).unfocus();
     if (isValid == true) {
+      context.read<LogInPageProvider>().trueState();
       _formKey.currentState?.save();
       Navigator.of(context).push(
         MaterialPageRoute(
@@ -60,6 +61,7 @@ class _LogInPageState extends State<LogInPage> {
     // TODO: implement dispose
     _emailController.dispose();
     _passWordController.dispose();
+
     super.dispose();
   }
 
@@ -72,21 +74,21 @@ class _LogInPageState extends State<LogInPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              IconButton(
-                splashColor: Colors.transparent,
-                highlightColor: Colors.transparent,
-                icon: const Icon(
-                  Icons.arrow_back,
-                  color: AppColors.startGradient,
-                ),
-                onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => HomePage(),
-                    ),
-                  );
-                },
-              ),
+             IconButton(
+               splashColor: Colors.transparent,
+               highlightColor: Colors.transparent,
+               icon: const Icon(
+                 Icons.arrow_back,
+                 color: AppColors.startGradient,
+               ),
+               onPressed: () {
+                 Navigator.of(context).push(
+                   MaterialPageRoute(
+                     builder: (context) => HomePage(),
+                   ),
+                 );
+               },
+             ),
               SizedBox(
                 height: 66,
               ),
@@ -124,7 +126,7 @@ class _LogInPageState extends State<LogInPage> {
                       key: const ValueKey('email'),
                       controller: _emailController,
                       validator: (value) {
-                        Provider.of<LogInScreenProvider>(context, listen: false)
+                        Provider.of<LogInPageProvider>(context, listen: false)
                             .isValidEmail;
                         if (value!.contains("@") && value.contains(".com")) {
                           return null;
@@ -151,9 +153,9 @@ class _LogInPageState extends State<LogInPage> {
                     ),
                     TextFormField(
                       controller: _passWordController,
-                      obscureText: Provider.of<LogInScreenProvider>(context,
-                              listen: true)
-                          .obscureTextValue,
+                      obscureText:
+                          Provider.of<LogInPageProvider>(context, listen: true)
+                              .obscureTextValue,
                       key: const ValueKey('password'),
                       keyboardType: TextInputType.visiblePassword,
                       validator: (value) {
@@ -170,13 +172,18 @@ class _LogInPageState extends State<LogInPage> {
                           splashColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () {
-                            Provider.of<LogInScreenProvider>(context,
+                            Provider.of<LogInPageProvider>(context,
                                     listen: false)
                                 .toggleObscure();
                           },
-                          child: const Icon(
+                          child: Icon(
                             Icons.remove_red_eye_outlined,
-                            color: AppColors.textColorGrey2,
+                            color: context
+                                        .watch<LogInPageProvider>()
+                                        .obscureIconState ==
+                                    true
+                                ? AppColors.textColorGrey2
+                                : Colors.red,
                           ),
                         ),
                       ),
@@ -222,9 +229,17 @@ class _LogInPageState extends State<LogInPage> {
               SizedBox(height: 28),
               //submit button
               InkWell(
-                onTap: () {
-                  _onSubmitForm();
-                },
+                onTap: _passWordController.text != '' &&
+                        _emailController.text != ''
+                    ? () {
+                        if (_passWordController.text.length > 6) {
+                          context.read<LogInPageProvider>().trueState();
+                        } else {
+                          context.read<LogInPageProvider>().falseState();
+                        }
+                        _onSubmitForm();
+                      }
+                    : null,
                 child: Button(
                     title: 'Login',
                     textColor: AppColors.textColor,

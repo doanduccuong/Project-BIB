@@ -60,9 +60,6 @@ class ForgotPassword extends StatelessWidget {
               ),
               SizedBox(height: 84,),
               const OTPHandler(),
-
-
-
             ],
           ),
         ),

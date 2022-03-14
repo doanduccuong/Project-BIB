@@ -1,5 +1,8 @@
+
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class HomeScreenProvider extends ChangeNotifier{
+class HomeScreenProvider with ChangeNotifier {
+
 
 }

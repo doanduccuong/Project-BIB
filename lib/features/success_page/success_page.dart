@@ -18,7 +18,7 @@ class SuccessPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(height: 27,),
-            Padding(padding:EdgeInsets.only(right: 342),child: navigatorBackArrow(context)),
+            Padding(padding:EdgeInsets.only(right: 342),child: NavigatorBackArrow()),
             SizedBox(height: 53,),
             Image.asset(AppImage.group220Image),
             SizedBox(height: 25.47,),

@@ -17,6 +17,10 @@ class AppColors {
   static const Color ePrimaryColor = Color(0xFFFF7800);
   static const Color fPrimaryColor = Color(0xFF0E0C2D);
   static const Color gPrimaryColor=Color(0xFF302AE4);
+  static const Color mainBackGroundColor=Color(0xFF302A97);
+  static const Color textPrimaryColor=Color(0xFF111215);
+  static const Color textSubduedColor=Color(0xFF6A728A);
+  static const Color secondBackGroundColor=Color(0xFFF5F5FC);
   static const Gradient gradientStyle1 = LinearGradient(
     begin: Alignment.topLeft,
     end: Alignment.bottomLeft,

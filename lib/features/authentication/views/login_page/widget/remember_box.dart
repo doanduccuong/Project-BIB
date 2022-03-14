@@ -13,9 +13,9 @@ class RememberBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
         onTap: (){
-          context.read<LogInScreenProvider>().toggleTick();
+          context.read<LogInPageProvider>().toggleTick();
         },
-        child: context.watch<LogInScreenProvider>().isTick?tickBox():unTickBox()
+        child: context.watch<LogInPageProvider>().isTick?tickBox():unTickBox()
     );
   }
 }

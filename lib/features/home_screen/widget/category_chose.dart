@@ -17,6 +17,8 @@ class CategoryChose extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      splashColor: Colors.transparent,
+      highlightColor: Colors.transparent,
       onTap: callBack,
       child: Container(
         decoration: BoxDecoration(
