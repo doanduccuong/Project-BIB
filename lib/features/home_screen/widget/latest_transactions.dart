@@ -1,7 +1,7 @@
 import 'package:base_flutter/components/text_bold.dart';
 import 'package:base_flutter/configs/colors.dart';
 
-import 'package:base_flutter/features/home_screen/my_investers/subpage/transaction_list.dart';
+import 'package:base_flutter/features/home_screen/my_investors/subpage/transaction_list/transaction_list.dart';
 import 'package:flutter/material.dart';
 
 class LatestTransactions extends StatelessWidget {

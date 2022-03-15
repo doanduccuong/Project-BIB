@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:base_flutter/commands/base_command.dart';
 import 'package:base_flutter/features/authentication/views/register/provider/register_provider.dart';
 import 'package:base_flutter/features/authentication/views/reset_password/provider/reset_password_provider.dart';
+import 'package:base_flutter/features/home_screen/my_investors/subpage/transaction_list/provider/transaction_list_provider.dart';
 import 'package:base_flutter/models/main_app_model.dart';
 import 'package:base_flutter/routing/app_route_parser.dart';
 import 'package:base_flutter/routing/app_router.dart';
@@ -50,6 +51,7 @@ void main() async {
       ChangeNotifierProvider(create: (_) => RegisterProvider()),
       ChangeNotifierProvider(create: (_) => BaseDialogProvider()),
       ChangeNotifierProvider(create: (_) => HomeScreenProvider()),
+      ChangeNotifierProvider(create: (_) => TransactionListProvider()),
     ],
     child: _AppBootstrapper(),
   ));

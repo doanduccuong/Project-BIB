@@ -24,13 +24,13 @@ class MyInvestorsState extends HomeScreenState {
   List<Object?> get props => [];
 }
 
-class MyLead extends HomeScreenState {
+class MyLeadState extends HomeScreenState {
   @override
   // TODO: implement props
   List<Object?> get props => [];
 }
 
-class FAQ extends HomeScreenState {
+class FAQState extends HomeScreenState {
   @override
   // TODO: implement props
   List<Object?> get props => [];

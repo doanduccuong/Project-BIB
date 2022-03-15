@@ -5,10 +5,23 @@ class HomeScreenCubit extends Cubit<HomeScreenState> {
   HomeScreenCubit() : super(InitialState()) {
     goHomeScreen();
   }
-   void goHomeScreen(){
+  void goHomeScreen() {
     emit(MyProfileState());
   }
-  void goInvestors(){
+
+  void goInvestors() {
     emit(MyInvestorsState());
+  }
+
+  void goInstruction() {
+    emit(MyInstructionState());
+  }
+
+  void goLead() {
+    emit(MyLeadState());
+  }
+
+  void goFAQ() {
+    emit(FAQState());
   }
 }

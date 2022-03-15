@@ -9,15 +9,23 @@ import 'package:flutter_svg/flutter_svg.dart';
 class AppScaffold extends StatelessWidget {
   bool? useSafeArea = false;
   Widget bodyWidget;
+  double? toolbarHeight;
   Color? backGroundColor;
   EdgeInsets? padding;
+  Widget? leading;
   String title;
+  Widget? flexibleSpace;
+  EdgeInsets? paddingTitle;
   AppScaffold(
       {Key? key,
       this.useSafeArea,
       required this.title,
+      this.flexibleSpace,
+        this.paddingTitle,
       required this.bodyWidget,
       this.backGroundColor,
+      this.toolbarHeight,
+      this.leading,
       this.padding})
       : super(key: key);
 
@@ -28,47 +36,49 @@ class AppScaffold extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: Container(
-          padding: EdgeInsets.only(top: 20),
+          padding: paddingTitle??EdgeInsets.only(top: 20),
           child: TextBold(
             title: title,
             size: 18,
           ),
         ),
         automaticallyImplyLeading: false,
-        toolbarHeight: 95,
+        toolbarHeight: toolbarHeight ?? 95,
         backgroundColor: AppColors.mainBackGroundColor,
         leading: Container(
-          padding: EdgeInsets.only(top: 20),
-          child: NavigatorBackArrow(
-            iconColor: AppColors.textColor,
-          ),
-        ),
-        flexibleSpace: Container(
-          child: Stack(
-            children: [
-              Positioned(
-                top: 55,
-                left: 20,
-                child: Container(
-                  height: 22,
-                  width: MediaQuery.of(context).size.width,
-                  child: Row(
-                    children: [
-                      SizedBox(
-                        width: 100,
-                      ),
-                    ],
-                  ),
-                ),
+          padding: paddingTitle??EdgeInsets.only(top: 20),
+          child: leading ??
+              NavigatorBackArrow(
+                iconColor: AppColors.textColor,
               ),
-              SvgPicture.asset(AppImage.BIBBar1Image),
-              Align(
-                alignment: Alignment.topRight,
-                child: SvgPicture.asset(AppImage.BIBBar2Image),
-              )
-            ],
-          ),
         ),
+        flexibleSpace: flexibleSpace ??
+            Container(
+              child: Stack(
+                children: [
+                  Positioned(
+                    top: 55,
+                    left: 20,
+                    child: Container(
+                      height: 22,
+                      width: MediaQuery.of(context).size.width,
+                      child: Row(
+                        children: [
+                          SizedBox(
+                            width: 100,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SvgPicture.asset(AppImage.BIBBar1Image),
+                  Align(
+                    alignment: Alignment.topRight,
+                    child: SvgPicture.asset(AppImage.BIBBar2Image),
+                  )
+                ],
+              ),
+            ),
       ),
       body: useSafeArea == true
           ? Padding(

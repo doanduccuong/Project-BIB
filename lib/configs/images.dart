@@ -18,4 +18,6 @@ class AppImage{
   static const String BIBBar1Image="assets/images/BIB_bar_1.svg";
   static const String BIBBar2Image="assets/images/BIB_bar_2.svg";
   static const String visibleIcon="assets/images/visible_icon.svg";
+  static const String BIB1Image="assets/images/BIB_1.svg";
+  static const String dropDownIconIOS="assets/images/dropdown_icon_ios.svg";
 }

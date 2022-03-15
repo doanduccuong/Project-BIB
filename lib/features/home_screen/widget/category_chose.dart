@@ -7,10 +7,12 @@ class CategoryChose extends StatelessWidget {
   String image;
   String title;
   Function()? callBack;
+  Color? backGroundColor;
   CategoryChose({
     Key? key,
     required this.title,
     required this.image,
+    this.backGroundColor,
     this.callBack,
   }) : super(key: key);
 
@@ -22,6 +24,7 @@ class CategoryChose extends StatelessWidget {
       onTap: callBack,
       child: Container(
         decoration: BoxDecoration(
+          color: backGroundColor??AppColors.textColor,
           border: Border(top: BorderSide(width: 2,color: AppColors.fillColor))
         ),
         height: 126,
