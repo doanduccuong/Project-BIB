@@ -21,6 +21,9 @@ class AppColors {
   static const Color textPrimaryColor=Color(0xFF111215);
   static const Color textSubduedColor=Color(0xFF6A728A);
   static const Color secondBackGroundColor=Color(0xFFF5F5FC);
+  static const Color textLinkColor=Color(0xFF2B4AC7);
+  static const Color mediumBorderColor=Color(0xFFABB4D4);
+  static const Color textSecondaryColor=Color(0xFF2F323D);
   static const Gradient gradientStyle1 = LinearGradient(
     begin: Alignment.topLeft,
     end: Alignment.bottomLeft,

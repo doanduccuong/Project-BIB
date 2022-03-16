@@ -89,6 +89,7 @@ class HomeScreen extends StatelessWidget {
                         ],
                       ),
                       Button(
+                        callBack: ()=>print("on tap"),
                         title: '+ Create new investor',
                         backGroundColor: Colors.transparent,
                         textColor: AppColors.textColor,

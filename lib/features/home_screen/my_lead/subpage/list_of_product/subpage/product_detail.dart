@@ -1,5 +1,8 @@
 import 'package:base_flutter/components/text_bold.dart';
 import 'package:base_flutter/configs/colors.dart';
+import 'package:base_flutter/features/home_screen/my_lead/subpage/list_of_product/subpage/tab/asset_allocation.dart';
+import 'package:base_flutter/features/home_screen/my_lead/subpage/list_of_product/subpage/tab/performance.dart';
+import 'package:base_flutter/features/home_screen/my_lead/subpage/list_of_product/subpage/tab/product_informtaion.dart';
 import 'package:base_flutter/widget/app_scaffold.dart';
 import 'package:flutter/material.dart';
 
@@ -10,15 +13,17 @@ class ProductDetail extends StatefulWidget {
   State<ProductDetail> createState() => _ProductDetailState();
 }
 
-class _ProductDetailState extends State<ProductDetail> with SingleTickerProviderStateMixin{
+class _ProductDetailState extends State<ProductDetail>
+    with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
   @override
   void initState() {
-    _tabController=TabController(length: 3, vsync: this);
+    _tabController = TabController(length: 3, vsync: this);
     // TODO: implement initState
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
@@ -56,7 +61,9 @@ class _ProductDetailState extends State<ProductDetail> with SingleTickerProvider
               ],
             ),
           ),
-          SizedBox(height: 20,),
+          SizedBox(
+            height: 20,
+          ),
           Container(
             height: 26,
             child: TabBar(
@@ -75,6 +82,16 @@ class _ProductDetailState extends State<ProductDetail> with SingleTickerProvider
                 Tab(
                   text: 'Asset allocation',
                 )
+              ],
+            ),
+          ),
+          Flexible(
+            child: TabBarView(
+              controller: _tabController,
+              children: [
+                Performance(),
+                ProductInformation(),
+                AssetAllocation()
               ],
             ),
           )

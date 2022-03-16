@@ -30,7 +30,7 @@ class _HomeScreenCubitLogicState extends State<HomeScreenCubitLogic> {
               return MyProfile();
             }
             if(state is MyInvestorsState){
-              return ListOfProducts();
+              return MyInvestors();
             }
             if(state is MyLeadState){
               return MyLead();
