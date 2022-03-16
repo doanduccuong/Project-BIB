@@ -1,3 +1,4 @@
+import 'package:base_flutter/commands/base_command.dart';
 import 'package:base_flutter/components/text_bold.dart';
 import 'package:base_flutter/components/text_normal.dart';
 import 'package:base_flutter/configs/colors.dart';
@@ -5,6 +6,8 @@ import 'package:base_flutter/configs/images.dart';
 import 'package:base_flutter/features/home_screen/cubit/home_screen_cubit.dart';
 import 'package:base_flutter/features/home_screen/cubit/home_screen_cutbit_states.dart';
 import 'package:base_flutter/features/home_screen/drawer_field/drawer_field.dart';
+import 'package:base_flutter/features/home_screen/my_profile/subpage/create_new_investor/create_new_investor.dart';
+import 'package:base_flutter/features/home_screen/my_profile/subpage/create_new_investor/register_new_investor_provider.dart';
 import 'package:base_flutter/features/home_screen/widget/list_container.dart';
 import 'package:base_flutter/features/home_screen/widget/menu_icon.dart';
 import 'package:base_flutter/widget/button.dart';
@@ -21,6 +24,7 @@ class MyProfile extends StatelessWidget {
       builder: (context, state) {
         if (state is MyProfileState) {
           return Scaffold(
+
             drawerEnableOpenDragGesture: true,
             backgroundColor: Color(0xFFEEF0F6),
             body: SingleChildScrollView(
@@ -103,6 +107,11 @@ class MyProfile extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Button(
+                            callBack: ()=>Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) => CreateNewInvestor(),
+                              ),
+                            ),
                             title: '+ Create new investor',
                             backGroundColor: AppColors.textColor,
                             textColor: AppColors.mainBackGroundColor,

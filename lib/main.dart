@@ -17,7 +17,7 @@ import 'application.dart';
 import 'commands/bootstrap_command.dart';
 
 import 'features/authentication/views/login_page/provider/login_page_provider.dart';
-import 'features/home_screen/provider/home_screen_provider.dart';
+import 'features/home_screen/my_profile/subpage/create_new_investor/register_new_investor_provider.dart';
 import 'localizations/app_localizations.dart';
 
 void main() async {
@@ -50,7 +50,8 @@ void main() async {
       ChangeNotifierProvider(create: (_) => ResetPasswordProvider()),
       ChangeNotifierProvider(create: (_) => RegisterProvider()),
       ChangeNotifierProvider(create: (_) => BaseDialogProvider()),
-      ChangeNotifierProvider(create: (_) => HomeScreenProvider()),
+      // ChangeNotifierProvider(create: (_) => HomeScreenProvider()),
+      ChangeNotifierProvider(create: (_) => RegisterNewInvestorProvider()),
       ChangeNotifierProvider(create: (_) => TransactionListProvider()),
     ],
     child: _AppBootstrapper(),
