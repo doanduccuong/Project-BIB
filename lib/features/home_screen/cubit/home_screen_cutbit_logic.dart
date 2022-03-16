@@ -6,6 +6,7 @@ import 'package:base_flutter/features/home_screen/my_instruction/my_instruction.
 
 import 'package:base_flutter/features/home_screen/my_investors/my_investor.dart';
 import 'package:base_flutter/features/home_screen/my_lead/my_lead.dart';
+import 'package:base_flutter/features/home_screen/my_lead/subpage/list_of_product/list_of_products.dart';
 import 'package:base_flutter/features/home_screen/my_profile/my_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -29,7 +30,7 @@ class _HomeScreenCubitLogicState extends State<HomeScreenCubitLogic> {
               return MyProfile();
             }
             if(state is MyInvestorsState){
-              return MyInvestors();
+              return ListOfProducts();
             }
             if(state is MyLeadState){
               return MyLead();
