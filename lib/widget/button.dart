@@ -5,16 +5,16 @@ import '../../../configs/colors.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Button extends StatelessWidget {
-  Color? backGroundColor;
-  double? width;
-  double? height;
-  double? textSize;
-  Color? textColor;
-  Color? borderColor;
-  String title;
-  bool? borderOnly;
-  Function()? callBack;
-  Widget? child;
+  final Color? backGroundColor;
+  final double? width;
+  final double? height;
+  final double? textSize;
+  final Color? textColor;
+  final Color? borderColor;
+  final String title;
+  final bool? borderOnly;
+  final Function()? callBack;
+  final Widget? child;
   Button({
     Key? key,
     this.backGroundColor,

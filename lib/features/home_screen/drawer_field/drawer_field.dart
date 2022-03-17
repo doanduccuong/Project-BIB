@@ -32,7 +32,7 @@ class DrawerField extends StatelessWidget {
             CategoryChose(
               backGroundColor: currentState is MyProfileState?AppColors.fillColor:null,
               callBack: (){
-                BlocProvider.of<HomeScreenCubit>(context).goHomeScreen();
+               Navigator.pop(context);
               },
               image: AppImage.myProfile,
               title: 'MY PROFILE',

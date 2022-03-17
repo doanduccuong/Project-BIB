@@ -3,8 +3,6 @@ import 'package:base_flutter/components/text_normal.dart';
 import 'package:base_flutter/configs/colors.dart';
 import 'package:base_flutter/features/home_screen/my_investors/subpage/transaction_detail/edit_investor/widget/form_design.dart';
 import 'package:base_flutter/features/home_screen/my_profile/subpage/create_new_investor/register_new_investor_provider.dart';
-import 'package:base_flutter/features/home_screen/my_profile/subpage/create_new_investor/widget/progress_bar.dart';
-import 'package:base_flutter/features/home_screen/my_profile/subpage/register_new_investor.dart';
 import 'package:base_flutter/widget/app_scaffold.dart';
 import 'package:base_flutter/widget/button.dart';
 import 'package:flutter/material.dart';
@@ -51,7 +49,6 @@ class _CreateNewInvestorState extends State<CreateNewInvestor> {
       bodyWidget: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          ProgressBar(),
           TextNormal(
             title: 'Types of investor',
             colors: AppColors.textSubduedColor,
@@ -178,8 +175,6 @@ class _CreateNewInvestorState extends State<CreateNewInvestor> {
           ),
           Spacer(),
           Button(
-            callBack: () => showDialog(
-                context: context, builder: (context) => RegisterNewInvestor()),
             title: 'Send request',
             textColor: AppColors.textColor,
             backGroundColor: AppColors.mainBackGroundColor,

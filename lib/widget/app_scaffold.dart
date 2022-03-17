@@ -7,14 +7,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class AppScaffold extends StatelessWidget {
-  bool? useSafeArea = false;
-  Widget bodyWidget;
-  double? toolbarHeight;
-  Color? backGroundColor;
-  EdgeInsets? padding;
-  Widget? leading;
-  String title;
-  Widget? flexibleSpace;
+   bool? useSafeArea = false;
+  final Widget bodyWidget;
+  final double? toolbarHeight;
+  final Color? backGroundColor;
+  final EdgeInsets? padding;
+  final Widget? leading;
+  final String title;
+  final Widget? flexibleSpace;
   EdgeInsets? paddingTitle;
   AppScaffold(
       {Key? key,

@@ -24,7 +24,6 @@ class MyProfile extends StatelessWidget {
       builder: (context, state) {
         if (state is MyProfileState) {
           return Scaffold(
-
             drawerEnableOpenDragGesture: true,
             backgroundColor: Color(0xFFEEF0F6),
             body: SingleChildScrollView(

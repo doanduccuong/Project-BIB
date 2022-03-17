@@ -62,15 +62,11 @@ class HomePage extends StatelessWidget {
                     Button(
                       borderColor: AppColors.textColor,
                       callBack: () {
-                        try {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (context) => Register(),
-                            ),
-                          );
-                        } catch (e) {
-                          print(e);
-                        }
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => Register(),
+                          ),
+                        );
                       },
                       title: 'Register',
                       backGroundColor: Colors.transparent,

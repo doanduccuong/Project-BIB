@@ -2,12 +2,16 @@ import 'package:base_flutter/components/text_bold.dart';
 import 'package:base_flutter/components/text_normal.dart';
 import 'package:base_flutter/configs/colors.dart';
 import 'package:base_flutter/configs/images.dart';
+import 'package:base_flutter/features/authentication/views/login_page/extention/regex_email.dart';
+import 'package:base_flutter/features/authentication/views/login_page/extention/regex_password.dart';
 import 'package:base_flutter/features/authentication/views/login_page/provider/login_page_provider.dart';
 import 'package:base_flutter/features/authentication/views/login_page/widget/remember_box.dart';
 import 'package:base_flutter/features/authentication/views/reset_password/reset_password_form.dart';
+
 import 'package:base_flutter/features/home_login/home_login.dart';
 
 import 'package:base_flutter/features/home_screen/cubit/home_screen_cutbit_logic.dart';
+import 'package:base_flutter/features/home_screen/my_investors/subpage/transaction_detail/edit_investor/widget/form_design.dart';
 
 import 'package:base_flutter/shared/styled_widgets/dialogs/base_dialog.dart';
 import 'package:base_flutter/widget/button.dart';
@@ -118,79 +122,46 @@ class _LogInPageState extends State<LogInPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    TextNormal(
-                      title: 'Email ID',
-                      size: 12,
-                      colors: AppColors.aPrimaryColor,
-                    ),
-                    //email form feld
-                    TextFormField(
-                      key: const ValueKey('email'),
-                      controller: _emailController,
-                      validator: (value) {
-                        Provider.of<LogInPageProvider>(context, listen: false)
-                            .isValidEmail;
-                        if (value!.contains("@") && value.contains(".com")) {
-                          return null;
-                        } else {
-                          return "Error email";
-                        }
-                      },
+                    FormDesign(
                       focusNode: _emailFocusNode,
-                      decoration: const InputDecoration(
-                        fillColor: Colors.transparent,
-                        filled: true,
-                      ),
                       onEditingComplete: () => FocusScope.of(context)
                           .requestFocus(_passwordFocusNode),
+                      validator: (input) =>
+                          input!.isValidEmail() ? null : "Error Email",
+                      controller: _emailController,
+                      title: 'Email Id',
+                      isRequired: false,
                     ),
                     SizedBox(
                       height: 50,
                     ),
-                    //password form field
-                    TextNormal(
-                      title: 'Password',
-                      size: 12,
-                      colors: AppColors.aPrimaryColor,
-                    ),
-                    TextFormField(
+                    FormDesign(
+                      onEditingComplete: _onSubmitForm,
+                      focusNode: _passwordFocusNode,
+                      validator: (input) =>
+                          input!.isValidPassword() ? null : "Error password",
+                      suffixIcon: InkWell(
+                        splashColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () {
+                          Provider.of<LogInPageProvider>(context, listen: false)
+                              .toggleObscure();
+                        },
+                        child: Icon(
+                          Icons.remove_red_eye_outlined,
+                          color: _passWordController.text.isValidPassword()
+                              ? AppColors.textColorGrey2
+                              : Colors.red,
+                        ),
+                      ),
                       controller: _passWordController,
+                      title: 'Password',
+                      isRequired: false,
                       obscureText:
                           Provider.of<LogInPageProvider>(context, listen: true)
                               .obscureTextValue,
-                      key: const ValueKey('password'),
-                      keyboardType: TextInputType.visiblePassword,
-                      validator: (value) {
-                        if (value!.length < 6) {
-                          return 'Error password';
-                        } else {
-                          return null;
-                        }
-                      },
-                      focusNode: _passwordFocusNode,
-                      decoration: InputDecoration(
-                        fillColor: Colors.transparent,
-                        suffixIcon: InkWell(
-                          splashColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () {
-                            Provider.of<LogInPageProvider>(context,
-                                    listen: false)
-                                .toggleObscure();
-                          },
-                          child:  Icon(
-                                  Icons.remove_red_eye_outlined,
-                                  color: context
-                                              .watch<LogInPageProvider>()
-                                              .obscureIconState ==
-                                          true
-                                      ? AppColors.textColorGrey2
-                                      : Colors.red,
-                                ),
-                        ),
-                      ),
-                      onEditingComplete: _onSubmitForm,
-                    ),
+                    )
+
                   ],
                 ),
               ),

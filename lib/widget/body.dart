@@ -1,7 +1,6 @@
 import 'package:base_flutter/commands/base_command.dart';
 import 'package:flutter/material.dart';
 import 'package:base_flutter/shared/extensions/size_extension.dart';
-import 'package:base_flutter/themes.dart';
 
 class Body extends StatelessWidget {
   final Widget? child;
@@ -36,9 +35,10 @@ class Body extends StatelessWidget {
         ),
         Expanded(
           child: Container(
-              width: width,
-              color: Color(0xFFFE0232),
-              child: child ?? SizedBox()),
+            width: width,
+            color: Color(0xFFFE0232),
+            child: child ?? SizedBox(),
+          ),
         ),
       ],
     );
