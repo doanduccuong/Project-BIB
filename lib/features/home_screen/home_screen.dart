@@ -4,8 +4,7 @@ import 'package:base_flutter/configs/colors.dart';
 import 'package:base_flutter/configs/images.dart';
 import 'package:base_flutter/features/home_screen/cubit/home_screen_cubit.dart';
 import 'package:base_flutter/features/home_screen/cubit/home_screen_cutbit_states.dart';
-import 'package:base_flutter/features/home_screen/widget/list_container.dart';
-import 'package:base_flutter/features/home_screen/widget/menu_icon.dart';
+
 import 'package:base_flutter/widget/button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -96,26 +95,26 @@ class HomeScreen extends StatelessWidget {
                           textSize: 14,
                           borderColor: AppColors.textColor,
                         ),
-                        ListContainer(
-                          title: 'List of investor',
-                          width: 335,
-                          height: 190,
-                        ),
-                        ListContainer(
-                          callBack: () => Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (context) => ListOfProducts(),
-                            ),
-                          ),
-                          title: 'List of products',
-                          width: 335,
-                          height: 190,
-                        ),
-                        ListContainer(
-                          title: 'BMoney investors',
-                          width: 335,
-                          height: 190,
-                        ),
+                        // ListContainer(
+                        //   title: 'List of investor',
+                        //   width: 335,
+                        //   height: 190,
+                        // ),
+                        // ListContainer(
+                        //   callBack: () => Navigator.of(context).push(
+                        //     MaterialPageRoute(
+                        //       builder: (context) => ListOfProducts(),
+                        //     ),
+                        //   ),
+                        //   title: 'List of products',
+                        //   width: 335,
+                        //   height: 190,
+                        // ),
+                        // ListContainer(
+                        //   title: 'BMoney investors',
+                        //   width: 335,
+                        //   height: 190,
+                        // ),
                       ],
                     ),
                   ),

@@ -3,7 +3,7 @@ import 'package:base_flutter/configs/colors.dart';
 import 'package:flutter/material.dart';
 
 class NavigatorBackArrow extends StatelessWidget {
-  Color? iconColor;
+  final Color? iconColor;
    NavigatorBackArrow({Key? key,this.iconColor}) : super(key: key);
 
   @override
