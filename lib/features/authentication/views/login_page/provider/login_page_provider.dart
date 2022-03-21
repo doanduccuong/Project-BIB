@@ -45,26 +45,9 @@ class LogInPageProvider extends ChangeNotifier {
 
   //hint pass
   bool _obscureTextValue=true;
-  get obscureTextValue=>_obscureTextValue;
+  bool get obscureTextValue=>_obscureTextValue;
   void toggleObscure(){
     _obscureTextValue=!_obscureTextValue;
-    notifyListeners();
-  }
-
-  //complete fill two text form field and change the color of button
-  // bool _isFill=false;
-  // bool get isFill=>_isFill;
-
-// chang the color of obscure icon
-  bool _obscureIconState=true;
-  bool get obscureIconState=>_obscureIconState;
-  void falseState(){
-    _obscureIconState=false;
-    notifyListeners();
-  }
-
-  void trueState(){
-    _obscureIconState=true;
     notifyListeners();
   }
 

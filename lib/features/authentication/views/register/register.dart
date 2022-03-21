@@ -1,6 +1,6 @@
 import 'package:base_flutter/components/text_bold.dart';
 import 'package:base_flutter/configs/colors.dart';
-import 'package:base_flutter/features/authentication/views/register/information_field/inforation_field.dart';
+import 'package:base_flutter/features/authentication/views/register/information_field/information_field.dart';
 import 'package:base_flutter/features/home_login/home_login.dart';
 import 'package:flutter/material.dart';
 

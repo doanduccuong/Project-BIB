@@ -1,7 +1,7 @@
-
 import 'package:base_flutter/configs/colors.dart';
 import 'package:base_flutter/features/authentication/views/register/widget/required_title.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class FormDesign extends StatelessWidget {
   final double? height;
@@ -14,35 +14,42 @@ class FormDesign extends StatelessWidget {
   final TextEditingController controller;
   final Function()? onEditingComplete;
   final bool? obscureText;
+  List<TextInputFormatter>? inputFormat;
   FormDesign({
     Key? key,
     required this.controller,
     this.width,
     this.obscureText,
+    this.inputFormat,
     this.height,
     required this.title,
     this.onEditingComplete,
     this.suffixIcon,
     this.focusNode,
-    this.isRequired,
+    this.isRequired=true,
     this.validator,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          RequiredTitle(title: title,isRequired: isRequired,),
-          SizedBox(height: 10,),
+          RequiredTitle(
+            title: title,
+            isRequired: isRequired,
+          ),
+          SizedBox(
+            height: 10,
+          ),
           Container(
-            height: height ?? 31,
+            height: height ?? 50,
             child: TextFormField(
-              obscureText: obscureText??false,
+              inputFormatters: inputFormat,
+              obscureText: obscureText ?? false,
               onEditingComplete: onEditingComplete,
-              focusNode: null??focusNode,
+              focusNode: null ?? focusNode,
               validator: validator,
               controller: controller,
               style: TextStyle(
@@ -61,7 +68,7 @@ class FormDesign extends StatelessWidget {
                 fillColor: AppColors.textPrimaryColor,
                 suffixIcon: suffixIcon,
                 suffixIconConstraints:
-                    BoxConstraints(maxHeight: 6.8, maxWidth: 10.8),
+                    BoxConstraints(maxHeight: 9.8, maxWidth: 16),
               ),
             ),
           )

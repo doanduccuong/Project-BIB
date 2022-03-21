@@ -7,6 +7,7 @@ class LeadsTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      alignment: Alignment.center,
       child: TextBold(title: 'Lead Tab',size: 30,colors: AppColors.mainBackGroundColor,),
     );
   }

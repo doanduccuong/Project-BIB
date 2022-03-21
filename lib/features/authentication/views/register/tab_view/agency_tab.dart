@@ -1,11 +1,12 @@
 import 'package:base_flutter/configs/colors.dart';
-import 'package:base_flutter/features/authentication/views/register/provider/register_provider.dart';
+
 import 'package:base_flutter/features/authentication/views/register/widget/required_title.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/src/provider.dart';
+
 
 class AgencyTab extends StatelessWidget {
-  const AgencyTab({Key? key}) : super(key: key);
+  final TextEditingController companyController;
+   AgencyTab({Key? key,required this.companyController,}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,8 +29,7 @@ class AgencyTab extends StatelessWidget {
                     isRequired: false,
                   ),
                   TextFormField(
-                    controller:
-                        context.watch<RegisterProvider>().companyController,
+                    controller: companyController,
                   )
                 ],
               ),

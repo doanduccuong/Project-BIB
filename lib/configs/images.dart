@@ -20,4 +20,5 @@ class AppImage{
   static const String visibleIcon="assets/images/visible_icon.svg";
   static const String BIB1Image="assets/images/BIB_1.svg";
   static const String dropDownIconIOS="assets/images/dropdown_icon_ios.svg";
+  static const String eyeIconImage="assets/images/eye_icon.svg";
 }
