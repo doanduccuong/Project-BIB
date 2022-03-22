@@ -15,6 +15,7 @@ class Register extends StatelessWidget {
           child: Container(
             padding: EdgeInsets.only(left: 22, right: 22),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
@@ -24,7 +25,7 @@ class Register extends StatelessWidget {
                   splashColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   child: Icon(
-                    Icons.arrow_back,
+                    Icons.arrow_back_ios,
                     color: AppColors.startGradient,
                   ),
                   onTap: () {

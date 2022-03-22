@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class CategoryChose extends StatelessWidget {
-  String image;
-  String title;
-  Function()? callBack;
-  Color? backGroundColor;
+  final String image;
+  final String title;
+  final Function()? callBack;
+  final Color? backGroundColor;
   CategoryChose({
     Key? key,
     required this.title,

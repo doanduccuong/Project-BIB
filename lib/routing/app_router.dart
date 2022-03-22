@@ -66,7 +66,6 @@ class AppRouterDelegate extends RouterDelegate<PageConfiguration>
         return [
           _createContentInPage(HomePage(), currentConfiguration),
         ];
-
       case AuthPageConfiguration:
         return [
           _createContentInPage(
@@ -84,10 +83,6 @@ class AppRouterDelegate extends RouterDelegate<PageConfiguration>
             currentConfiguration,
           ),
         ];
-      // case HomePageConfiguration:
-      //   return [
-      //     _createContentInPage(HomePage(), currentConfiguration),
-      //   ];
       default:
         return [
           _createContentInPage(HomePage(), currentConfiguration),

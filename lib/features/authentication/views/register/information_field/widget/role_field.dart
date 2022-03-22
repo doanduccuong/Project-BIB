@@ -13,6 +13,8 @@ class RoleField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var watch = Provider.of<RegisterProvider>(context, listen: true);
+    var read = Provider.of<RegisterProvider>(context, listen: false);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -23,18 +25,19 @@ class RoleField extends StatelessWidget {
         Row(
           children: [
             Button(
-              borderColor: context.watch<RegisterProvider>().roleSelected == sales?AppColors.mainBackGroundColor:null,
+              borderColor: watch.roleSelected == sales
+                  ? AppColors.mainBackGroundColor
+                  : null,
               callBack: () {
-                context.read<RegisterProvider>().selectRole(sales);
+                read.selectRole(sales);
               },
               title: sales,
-              backGroundColor:
-                  context.watch<RegisterProvider>().roleSelected == sales
-                      ? Colors.transparent
-                      : Color(0xFFF4F4F9),
+              backGroundColor: watch.roleSelected == sales
+                  ? Colors.transparent
+                  : Color(0xFFF4F4F9),
               height: 35,
               width: 167,
-              textColor: context.watch<RegisterProvider>().roleSelected == sales
+              textColor: watch.roleSelected == sales
                   ? AppColors.mainBackGroundColor
                   : AppColors.textColorGrey2,
             ),
@@ -42,19 +45,22 @@ class RoleField extends StatelessWidget {
               width: 2,
             ),
             Button(
-              borderColor: context.watch<RegisterProvider>().roleSelected == supervisor?AppColors.mainBackGroundColor:null,
+              borderColor:
+                  watch.roleSelected == supervisor
+                      ? AppColors.mainBackGroundColor
+                      : null,
               callBack: () {
-                context.read<RegisterProvider>().selectRole(supervisor);
+                read.selectRole(supervisor);
               },
               title: supervisor,
               backGroundColor:
-                  context.watch<RegisterProvider>().roleSelected == supervisor
+                  watch.roleSelected == supervisor
                       ? Colors.transparent
                       : Color(0xFFF4F4F9),
               height: 35,
               width: 167,
               textColor:
-                  context.watch<RegisterProvider>().roleSelected == supervisor
+                  watch.roleSelected == supervisor
                       ? AppColors.mainBackGroundColor
                       : AppColors.textColorGrey2,
             ),

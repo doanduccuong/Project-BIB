@@ -2,8 +2,7 @@ import 'package:base_flutter/components/text_bold.dart';
 import 'package:base_flutter/components/text_normal.dart';
 import 'package:base_flutter/configs/colors.dart';
 import 'package:base_flutter/configs/images.dart';
-import 'package:base_flutter/extention/regex_email.dart';
-import 'package:base_flutter/extention/regex_password.dart';
+import 'package:base_flutter/shared/extensions/regex_email.dart';
 
 import 'package:base_flutter/features/authentication/views/login_page/provider/login_page_provider.dart';
 import 'package:base_flutter/features/authentication/views/login_page/widget/remember_box.dart';
@@ -11,6 +10,7 @@ import 'package:base_flutter/features/authentication/views/reset_password/reset_
 
 import 'package:base_flutter/features/home_screen/cubit/home_screen_cutbit_logic.dart';
 import 'package:base_flutter/features/home_screen/my_investors/subpage/transaction_detail/edit_investor/widget/form_design.dart';
+import 'package:base_flutter/shared/extensions/regex_password.dart';
 
 import 'package:base_flutter/widget/button.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +28,6 @@ class _LogInPageState extends State<LogInPage> {
   late FocusNode _passwordFocusNode;
   late TextEditingController _emailController;
   late TextEditingController _passWordController;
-
   void _onSubmitForm() {
     final isValid = _formKey.currentState?.validate();
     FocusScope.of(context).unfocus();
@@ -70,6 +69,8 @@ class _LogInPageState extends State<LogInPage> {
 
   @override
   Widget build(BuildContext context) {
+    var read = Provider.of<LogInPageProvider>(context, listen: false);
+    var watch = Provider.of<LogInPageProvider>(context, listen: true);
     return SingleChildScrollView(
       child: Container(
         padding: EdgeInsets.only(left: 20, right: 20, top: 20),
@@ -105,7 +106,7 @@ class _LogInPageState extends State<LogInPage> {
                 children: [
                   // email id form field
                   FormDesign(
-                    isRequired: true,
+                    requiredTileFontSize: _emailFocusNode.hasFocus?18:12,
                     focusNode: _emailFocusNode,
                     onEditingComplete: () =>
                         FocusScope.of(context).requestFocus(_passwordFocusNode),
@@ -114,29 +115,26 @@ class _LogInPageState extends State<LogInPage> {
                     controller: _emailController,
                     title: 'Email Id',
                   ),
-
                   SizedBox(
                     height: 50,
                   ),
-
                   // password form field
                   FormDesign(
-                    isRequired: true,
+                    requiredTileFontSize: _passwordFocusNode.hasFocus?18:null,
                     onEditingComplete: _onSubmitForm,
                     focusNode: _passwordFocusNode,
-                    validator: (input) =>
-                        input!.isValidPassword() ? null : "Error password",
+                    validator: (input) => input!.validatePassword(input),
                     suffixIcon: InkWell(
-                      onTap: () =>
-                          Provider.of<LogInPageProvider>(context, listen: false)
-                              .toggleObscure(),
-                      child: SvgPicture.asset(AppImage.eyeIconImage),
+                      onTap: () => read.toggleObscure(),
+                      child: SvgPicture.asset(
+                        watch.obscureTextValue
+                            ? AppImage.hiddenIconImage
+                            : AppImage.visibleIconImage,
+                      ),
                     ),
                     controller: _passWordController,
                     title: 'Password',
-                    obscureText:
-                        Provider.of<LogInPageProvider>(context, listen: true)
-                            .obscureTextValue,
+                    obscureText: watch.obscureTextValue,
                   )
                 ],
               ),
@@ -149,7 +147,7 @@ class _LogInPageState extends State<LogInPage> {
                 TextNormal(
                   title: 'Remember',
                   size: 12,
-                  colors: context.watch<LogInPageProvider>().isTick == false
+                  colors: watch.isTick == false
                       ? AppColors.aPrimaryColor
                       : AppColors.mainBackGroundColor,
                 ),
@@ -175,10 +173,10 @@ class _LogInPageState extends State<LogInPage> {
             ),
             //submit button
             InkWell(
-              onTap: _emailController.text.isValidEmail() &&
-                      _passWordController.text.isValidPassword()
-                  ? () => _onSubmitForm()
-                  : null,
+              onTap:
+                  _passWordController.text != '' && _emailController.text != ''
+                      ? () => _onSubmitForm()
+                      : null,
               child: Button(
                 title: 'Login',
                 textColor: AppColors.textColor,
@@ -189,14 +187,15 @@ class _LogInPageState extends State<LogInPage> {
               ),
             ),
             Padding(
-                padding: EdgeInsets.only(
-                  left: 140,
-                  top: 36.1,
-                ),
-                child: SvgPicture.asset(
-                  AppImage.fingerPrintImage,
-                  color: AppColors.mainBackGroundColor,
-                ))
+              padding: EdgeInsets.only(
+                left: 140,
+                top: 36.1,
+              ),
+              child: SvgPicture.asset(
+                AppImage.fingerPrintImage,
+                color: AppColors.mainBackGroundColor,
+              ),
+            )
           ],
         ),
       ),

@@ -14,19 +14,25 @@ class FormDesign extends StatelessWidget {
   final TextEditingController controller;
   final Function()? onEditingComplete;
   final bool? obscureText;
-  List<TextInputFormatter>? inputFormat;
+  final String? initialValue;
+  final List<TextInputFormatter>? inputFormat;
+  final TextInputType? keyboardType;
+  final double? requiredTileFontSize;
   FormDesign({
     Key? key,
     required this.controller,
     this.width,
     this.obscureText,
+    this.keyboardType,
+    this.requiredTileFontSize,
     this.inputFormat,
     this.height,
+    this.initialValue,
     required this.title,
     this.onEditingComplete,
     this.suffixIcon,
     this.focusNode,
-    this.isRequired=true,
+    this.isRequired = true,
     this.validator,
   }) : super(key: key);
 
@@ -36,40 +42,38 @@ class FormDesign extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          RequiredTitle(
-            title: title,
-            isRequired: isRequired,
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Container(
-            height: height ?? 50,
-            child: TextFormField(
-              inputFormatters: inputFormat,
-              obscureText: obscureText ?? false,
-              onEditingComplete: onEditingComplete,
-              focusNode: null ?? focusNode,
-              validator: validator,
-              controller: controller,
-              style: TextStyle(
-                color: AppColors.textPrimaryColor,
-                fontWeight: FontWeight.w500,
+          TextFormField(
+
+            keyboardType: keyboardType,
+            inputFormatters: inputFormat,
+            obscureText: obscureText ?? false,
+            onEditingComplete: onEditingComplete,
+            focusNode: null ?? focusNode,
+            validator: validator,
+            controller: controller,
+            style: TextStyle(
+              color: AppColors.textPrimaryColor,
+              fontWeight: FontWeight.w500,
+              fontSize: 12
+            ),
+            decoration: InputDecoration(
+
+              label: RequiredTitle(
                 fontSize: 14,
+                title: title,
+                isRequired: isRequired,
               ),
-              decoration: InputDecoration(
-                enabledBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Color(0xFFE9EAF4),
-                  ),
+              enabledBorder: UnderlineInputBorder(
+                borderSide: BorderSide(
+                  color: Color(0xFFE9EAF4),
                 ),
-                isDense: true,
-                contentPadding: EdgeInsets.only(bottom: 10),
-                fillColor: AppColors.textPrimaryColor,
-                suffixIcon: suffixIcon,
-                suffixIconConstraints:
-                    BoxConstraints(maxHeight: 9.8, maxWidth: 16),
               ),
+              isDense: true,
+              contentPadding: EdgeInsets.only(bottom: 10,top: 2),
+              fillColor: AppColors.textPrimaryColor,
+              suffixIcon: suffixIcon,
+              suffixIconConstraints:
+                  BoxConstraints(maxHeight: 9.8, maxWidth: 16),
             ),
           )
         ],

@@ -10,22 +10,15 @@ import 'package:flutter/material.dart';
 
 
 class ResetPasswordProvider extends ChangeNotifier {
-  final _formKey = GlobalKey<FormState>();
-  GlobalKey get formKey=>_formKey;
 
 
 
 
-//text editing controller
-  TextEditingController passwordController = TextEditingController();
-  TextEditingController confirmPasswordController = TextEditingController();
 
 
-  void disposeController() {
-    passwordController.dispose();
-    confirmPasswordController.dispose();
-    notifyListeners();
-  }
+
+
+
 
   //variable to save the value of new password and confirm new password
   String newPassword='';
@@ -34,11 +27,11 @@ class ResetPasswordProvider extends ChangeNotifier {
   bool get isTheSame=>_isTheSame;
 
 
-  void checkTheSame(){
-    print("The new password is "+passwordController.text);
-    print("The confirm password is "+confirmPasswordController.text);
-    newPassword=passwordController.text;
-    confirmNewPassword=confirmPasswordController.text;
+  void checkTheSame(password,confirmPassword){
+    print("The new password is "+password);
+    print("The confirm password is "+confirmPassword);
+    newPassword=password;
+    confirmNewPassword=confirmPassword;
 
     if(newPassword==confirmNewPassword){
       print("the same");
@@ -51,13 +44,13 @@ class ResetPasswordProvider extends ChangeNotifier {
       notifyListeners();
     }
   }
-  void notify(context){
-    if (_formKey.currentState?.validate()==true) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Password updated')),
-      );
-    }
-  }
+  // void notify(context){
+  //   if (_formKey.currentState?.validate()==true) {
+  //     ScaffoldMessenger.of(context).showSnackBar(
+  //       const SnackBar(content: Text('Password updated')),
+  //     );
+  //   }
+  // }
 
 
 

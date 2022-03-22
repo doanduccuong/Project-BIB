@@ -10,6 +10,8 @@ import 'package:base_flutter/widget/button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../my_profile_header/my_profile_header.dart';
+
 class InvestorTab extends StatelessWidget {
   const InvestorTab({Key? key}) : super(key: key);
 
@@ -19,75 +21,8 @@ class InvestorTab extends StatelessWidget {
       child: Container(
         child: Column(
           children: [
-            Container(
-              height: 174,
-              decoration: BoxDecoration(color: AppColors.mainBackGroundColor),
-              padding: EdgeInsets.only(left: 22, right: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    height: 59,
-                  ),
-                  Row(
-                    children: [
-                      Builder(
-                        builder: (context) {
-                          return MenuIcon(callBack: () {
-                            Scaffold.of(context).openDrawer();
-                          });
-                        },
-                      ),
-                      Spacer(),
-                      Container(
-                        height: 22.9,
-                        width: 110,
-                        child: SvgPicture.asset(
-                          AppImage.logoHorColorImage,
-                        ),
-                      ),
-                      SizedBox(
-                        width: 56,
-                      ),
-                      Icon(
-                        Icons.search,
-                        color: AppColors.textColor,
-                      ),
-                      SizedBox(
-                        width: 25,
-                      ),
-                      Icon(
-                        Icons.notifications_none,
-                        color: AppColors.textColor,
-                      )
-                    ],
-                  ),
-                  TextNormal(
-                    title: 'Hello',
-                    size: 16,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      TextBold(
-                        title: 'John Doe!',
-                        size: 24,
-                      ),
-                      CircleAvatar(
-                        radius: 23,
-                        backgroundColor: Colors.white,
-                        child: CircleAvatar(
-                          radius: 21,
-                        ),
-                      )
-                    ],
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
+            HeaderMyProfile(),
+            SizedBox(height: 20,),
             Button(
               callBack: () => Navigator.of(context).push(
                 MaterialPageRoute(

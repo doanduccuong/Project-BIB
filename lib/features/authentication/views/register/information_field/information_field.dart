@@ -1,7 +1,6 @@
 import 'package:base_flutter/configs/colors.dart';
-import 'package:base_flutter/extention/regex_email.dart';
-import 'package:base_flutter/extention/regex_full_name.dart';
-import 'package:base_flutter/extention/regex_password.dart';
+import 'package:base_flutter/shared/extensions/regex_email.dart';
+import 'package:base_flutter/shared/extensions/regex_full_name.dart';
 
 import 'package:base_flutter/features/authentication/views/register/information_field/widget/mobile_number_field.dart';
 import 'package:base_flutter/features/authentication/views/register/information_field/widget/company_field.dart';
@@ -10,6 +9,7 @@ import 'package:base_flutter/features/authentication/views/register/provider/reg
 
 import 'package:base_flutter/features/home_screen/my_investors/subpage/transaction_detail/edit_investor/widget/form_design.dart';
 import 'package:base_flutter/features/send_otp/send_otp.dart';
+import 'package:base_flutter/shared/extensions/regex_password.dart';
 import 'package:base_flutter/widget/button.dart';
 
 import 'package:flutter/material.dart';
@@ -93,6 +93,7 @@ class _InformationFieldState extends State<InformationField>
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Form(
           key: _formKey,
@@ -134,8 +135,7 @@ class _InformationFieldState extends State<InformationField>
                 onEditingComplete: () => FocusScope.of(context)
                     .requestFocus(_confirmPassWordFocusNode),
                 obscureText: true,
-                validator: (input) =>
-                    input!.isValidPassword() ? null : "Error password",
+                validator: (input) => input!.validatePassword(input),
                 controller: _passwordController,
                 title: 'Password',
               ),
@@ -178,7 +178,7 @@ class _InformationFieldState extends State<InformationField>
                 supervisor: supervisor,
               ),
               SizedBox(
-                height: 23,
+                height: 200,
               ),
               Button(
                 callBack: () {
