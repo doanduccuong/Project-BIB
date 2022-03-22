@@ -11,7 +11,7 @@ class InHouseTab extends StatelessWidget {
     return Container(
       padding: EdgeInsets.only(right: 22),
       decoration: BoxDecoration(
-        border: Border.all(color: AppColors.fillColor,width: 3),
+        border: Border.all(color: Colors.transparent,width: 3),
       ),
       child: ListView.builder(
           itemCount: 5,

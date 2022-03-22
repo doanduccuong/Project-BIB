@@ -95,26 +95,7 @@ class HomeScreen extends StatelessWidget {
                           textSize: 14,
                           borderColor: AppColors.textColor,
                         ),
-                        // ListContainer(
-                        //   title: 'List of investor',
-                        //   width: 335,
-                        //   height: 190,
-                        // ),
-                        // ListContainer(
-                        //   callBack: () => Navigator.of(context).push(
-                        //     MaterialPageRoute(
-                        //       builder: (context) => ListOfProducts(),
-                        //     ),
-                        //   ),
-                        //   title: 'List of products',
-                        //   width: 335,
-                        //   height: 190,
-                        // ),
-                        // ListContainer(
-                        //   title: 'BMoney investors',
-                        //   width: 335,
-                        //   height: 190,
-                        // ),
+
                       ],
                     ),
                   ),

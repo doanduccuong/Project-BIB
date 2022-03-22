@@ -123,37 +123,51 @@ class _InformationFieldState extends State<InformationField>
                 size: 12,
               ),
               Container(
+                decoration: BoxDecoration(
+                  border: Border.all(color: AppColors.textLinkColor)
+                ),
                 width: 334,
-                height: 34.52,
-                child: TabBar(
-                  unselectedLabelColor: AppColors.bPrimaryColor,
-                  labelColor: AppColors.startGradient,
-                  indicatorColor: AppColors.dPrimaryColor,
-                  controller: _tabController,
-                  labelPadding: const EdgeInsets.all(0.0),
-                  tabs: [
-                    _getTab(
-                      0,
-                      Text('Inhouse'),
+                height: 400,
+                child: Column(
+                  children: [
+                    TabBar(
+                      unselectedLabelColor: AppColors.bPrimaryColor,
+                      labelColor: AppColors.startGradient,
+                      indicatorColor: AppColors.dPrimaryColor,
+                      controller: _tabController,
+                      labelPadding: const EdgeInsets.all(0.0),
+                      tabs: [
+                        _getTab(
+                          0,
+                          Text('Inhouse'),
+                        ),
+                        _getTab(
+                          1,
+                          Text('Agency'),
+                        ),
+                      ],
                     ),
-                    _getTab(
-                      1,
-                      Text('Agency'),
-                    ),
+                  Container(
+                    height: 400,
+                    child: TabBarView(
+                          controller: _tabController,
+                          children: [InHouseTab(), AgencyTab()],
+                        ),
+                  ),
                   ],
-                ),
+                )
               ),
-              Container(
-                padding: EdgeInsets.only(
-                  right: 20,
-                ),
-                height: 305.75,
-                width: MediaQuery.of(context).size.width * 0.91,
-                child: TabBarView(
-                  controller: _tabController,
-                  children: [InHouseTab(), AgencyTab()],
-                ),
-              ),
+              // Container(
+              //   padding: EdgeInsets.only(
+              //     right: 20,
+              //   ),
+              //   height: 305.75,
+              //   width: MediaQuery.of(context).size.width * 0.91,
+              //   child: TabBarView(
+              //     controller: _tabController,
+              //     children: [InHouseTab(), AgencyTab()],
+              //   ),
+              // ),
 
               SizedBox(
                 height: 24,
