@@ -6,8 +6,6 @@ import 'package:base_flutter/features/authentication/views/reset_password/widget
 
 import 'package:flutter/material.dart';
 
-
-
 class ResetPassword extends StatelessWidget {
   const ResetPassword({Key? key}) : super(key: key);
 
@@ -26,7 +24,7 @@ class ResetPassword extends StatelessWidget {
               splashColor: Colors.transparent,
               highlightColor: Colors.transparent,
               icon: const Icon(
-                Icons.arrow_back,
+                Icons.arrow_back_ios,
                 color: AppColors.startGradient,
               ),
               onPressed: () {
@@ -46,12 +44,13 @@ class ResetPassword extends StatelessWidget {
               colors: AppColors.startGradient,
             ),
             TextNormal(
-              title:
-              'Please enter your new password and confirm the password.',
+              title: 'Please enter your new password and confirm the password.',
               size: 14,
               colors: AppColors.textColorGrey2,
             ),
-            SizedBox(height: 63,),
+            SizedBox(
+              height: 63,
+            ),
             // confirm password field
             const ConfirmPassword()
           ],

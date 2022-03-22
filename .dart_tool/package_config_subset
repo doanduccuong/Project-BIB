@@ -240,8 +240,8 @@ file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/fixnum-1.0.0/
 file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/fixnum-1.0.0/lib/
 flutter_bloc
 2.12
-file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_bloc-7.0.0/
-file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_bloc-7.0.0/lib/
+file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_bloc-7.2.0/
+file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_bloc-7.2.0/lib/
 flutter_blurhash
 2.12
 file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_blurhash-0.6.0/
@@ -402,6 +402,10 @@ logging
 2.12
 file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/logging-1.0.1/
 file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/logging-1.0.1/lib/
+mask_text_input_formatter
+2.12
+file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/mask_text_input_formatter-2.1.0/
+file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/mask_text_input_formatter-2.1.0/lib/
 matcher
 2.12
 file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/matcher-0.12.11/
@@ -472,8 +476,8 @@ file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/pin_code_fields-7.3.0/
 file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/pin_code_fields-7.3.0/lib/
 platform
 2.12
-file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/platform-3.0.0/
-file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/platform-3.0.0/lib/
+file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/platform-3.1.0/
+file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/platform-3.1.0/lib/
 plugin_platform_interface
 2.12
 file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/plugin_platform_interface-2.0.0/
@@ -488,8 +492,8 @@ file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/process-4.2.1/
 file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/process-4.2.1/lib/
 provider
 2.12
-file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/provider-5.0.0/
-file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/provider-5.0.0/lib/
+file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/provider-6.0.2/
+file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/provider-6.0.2/lib/
 pub_semver
 2.12
 file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/pub_semver-2.0.0/

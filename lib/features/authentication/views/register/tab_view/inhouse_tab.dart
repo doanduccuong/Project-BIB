@@ -1,10 +1,11 @@
 import 'package:base_flutter/configs/colors.dart';
-import 'package:base_flutter/features/authentication/views/register/provider/register_provider.dart';
+
 import 'package:base_flutter/features/authentication/views/register/widget/required_title.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/src/provider.dart';
+
 class InHouseTab extends StatelessWidget {
-  const InHouseTab({Key? key}) : super(key: key);
+  final TextEditingController companyController;
+   InHouseTab({Key? key,required this.companyController,}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +27,7 @@ class InHouseTab extends StatelessWidget {
                   SizedBox(height: 22.5,),
                   RequiredTitle(title: 'Company Name',isRequired: false,),
                   TextFormField(
-                    controller: context.watch<RegisterProvider>().companyController,
+                    controller: companyController,
                   )
                 ],
               ),

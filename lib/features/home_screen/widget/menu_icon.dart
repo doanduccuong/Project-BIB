@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class MenuIcon extends StatelessWidget {
    MenuIcon({Key? key,this.callBack}) : super(key: key);
-  Function()? callBack;
+  final Function()? callBack;
   @override
   Widget build(BuildContext context) {
     return InkWell(

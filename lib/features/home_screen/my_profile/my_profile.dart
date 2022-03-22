@@ -1,5 +1,3 @@
-import 'package:base_flutter/components/text_normal.dart';
-
 import 'package:base_flutter/features/home_screen/cubit/home_screen_cubit.dart';
 import 'package:base_flutter/features/home_screen/cubit/home_screen_cutbit_states.dart';
 import 'package:base_flutter/features/home_screen/drawer_field/drawer_field.dart';
@@ -12,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core_packages.dart';
+
 import 'my_profile_bottom_bar/my_profile_bottom_bar.dart';
 import 'my_profile_tab/report_tab.dart';
 

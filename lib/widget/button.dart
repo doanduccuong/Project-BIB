@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../../components/text_bold.dart';
 import '../../../configs/colors.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Button extends StatelessWidget {
   final Color? backGroundColor;

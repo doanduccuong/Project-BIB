@@ -1,8 +1,7 @@
-import 'package:base_flutter/components/text_bold.dart';
 import 'package:base_flutter/components/text_normal.dart';
 import 'package:base_flutter/configs/colors.dart';
-import 'package:base_flutter/features/home_screen/my_investors/subpage/transaction_detail/edit_investor/widget/form_design.dart';
 import 'package:base_flutter/features/home_screen/my_profile/subpage/create_new_investor/register_new_investor_provider.dart';
+import 'package:base_flutter/features/home_screen/my_profile/subpage/create_new_investor/subpage/current_information.dart';
 import 'package:base_flutter/widget/app_scaffold.dart';
 import 'package:base_flutter/widget/button.dart';
 import 'package:flutter/material.dart';
@@ -16,29 +15,45 @@ class CreateNewInvestor extends StatefulWidget {
 }
 
 class _CreateNewInvestorState extends State<CreateNewInvestor> {
-  late TextEditingController _fullNameController;
-  late TextEditingController _emailController;
-  late TextEditingController _mobileNumberController;
+  late TextEditingController _companyNameController;
+  late TextEditingController _domicileController;
+  late TextEditingController _npwpController;
+  late TextEditingController _npwpDateController;
+  late TextEditingController _countryController;
+  late TextEditingController _placeController;
+  late TextEditingController _dateController;
+
   @override
   void initState() {
-    _fullNameController = TextEditingController();
-    _emailController = TextEditingController();
-    _mobileNumberController = TextEditingController();
+    _companyNameController = TextEditingController();
+    _domicileController = TextEditingController();
+    _npwpController = TextEditingController();
+    _npwpDateController = TextEditingController();
+    _countryController = TextEditingController();
+    _placeController = TextEditingController();
+    _dateController = TextEditingController();
+
     // TODO: implement initState
     super.initState();
   }
 
   @override
   void dispose() {
-    _fullNameController.dispose();
-    _emailController.dispose();
-    _mobileNumberController.dispose();
+    _companyNameController.dispose();
+    _domicileController.dispose();
+    _npwpController.dispose();
+    _npwpDateController.dispose();
+    _countryController.dispose();
+    _placeController.dispose();
+    _dateController.dispose();
     // TODO: implement dispose
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    var read = Provider.of<RegisterNewInvestorProvider>(context, listen: false);
+    var watch = Provider.of<RegisterNewInvestorProvider>(context, listen: true);
     return AppScaffold(
       padding: EdgeInsets.only(
         top: 25,
@@ -57,119 +72,54 @@ class _CreateNewInvestorState extends State<CreateNewInvestor> {
           Row(
             children: [
               Button(
+                callBack: () => read.setChoiceIndex(0),
                 title: "Individual",
                 height: 35,
                 width: 167,
-                textColor: AppColors.textSubduedColor,
-                backGroundColor: AppColors.fillColor,
+                textColor: watch.choiceIndex == 0
+                    ? AppColors.mainBackGroundColor
+                    : AppColors.textSubduedColor,
+                backGroundColor: watch.choiceIndex == 0
+                    ? Colors.transparent
+                    : AppColors.fillColor,
+                borderColor: watch.choiceIndex == 0
+                    ? AppColors.mainBackGroundColor
+                    : null,
               ),
               SizedBox(
                 width: 1,
               ),
               Button(
+                backGroundColor: watch.choiceIndex == 1
+                    ? Colors.transparent
+                    : AppColors.fillColor,
+                callBack: () => read.setChoiceIndex(1),
                 title: "Institutional",
                 height: 35,
                 width: 167,
-                textColor: AppColors.textSubduedColor,
-                backGroundColor: AppColors.fillColor,
+                textColor: watch.choiceIndex == 1
+                    ? AppColors.mainBackGroundColor
+                    : AppColors.textSubduedColor,
+                borderColor: watch.choiceIndex == 1
+                    ? AppColors.mainBackGroundColor
+                    : null,
               ),
             ],
           ),
-          FormDesign(
-            controller: _fullNameController,
-            title: 'Full Name',
-          ),
-          FormDesign(
-            controller: _emailController,
-            title: 'Email',
-          ),
-          FormDesign(
-            controller: _mobileNumberController,
-            title: 'Mobile Number',
+          CurrentInformation(
+            companyNameController: _companyNameController,
+            domicileController: _domicileController,
+            npwpController: _npwpController,
+            npwpDateController: _npwpDateController,
+            countryController: _countryController,
+            placeController: _placeController,
+            dateController: _dateController,
           ),
           Row(
             // mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Button(
-                callBack: () => Provider.of<RegisterNewInvestorProvider>(context,listen: false)
-                    .setChoiceIndex(0),
-                backGroundColor:
-                Provider.of<RegisterNewInvestorProvider>(context).choiceIndex ==
-                            0
-                        ? AppColors.textColor
-                        : AppColors.fillColor,
-                borderColor:
-                Provider.of<RegisterNewInvestorProvider>(context).choiceIndex ==
-                            0
-                        ? AppColors.textLinkColor
-                        : null,
-                height: 108,
-                width: 160,
-                title: '',
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Icons.person,
-                      color: Provider.of<RegisterNewInvestorProvider>(context)
-                                  .choiceIndex ==
-                              0
-                          ? AppColors.textLinkColor
-                          : AppColors.textSubduedColor,
-                    ),
-                    TextBold(
-                      title: 'Face to face option',
-                      size: 14,
-                      colors: Provider.of<RegisterNewInvestorProvider>(context)
-                                  .choiceIndex ==
-                              0
-                          ? AppColors.textLinkColor
-                          : AppColors.textSubduedColor,
-                    )
-                  ],
-                ),
-              ),
               SizedBox(
                 width: 15,
-              ),
-              Button(
-                borderColor:
-                Provider.of<RegisterNewInvestorProvider>(context).choiceIndex ==
-                    1
-                    ? AppColors.textLinkColor
-                    : null,
-                callBack: () => Provider.of<RegisterNewInvestorProvider>(context,listen: false)
-                    .setChoiceIndex(1),
-                backGroundColor:
-                Provider.of<RegisterNewInvestorProvider>(context).choiceIndex ==
-                    1
-                    ? AppColors.textColor
-                    : AppColors.fillColor,
-                height: 108,
-                width: 160,
-                title: '',
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Icons.wifi,
-                      color :Provider.of<RegisterNewInvestorProvider>(context)
-                          .choiceIndex ==
-                          1
-                          ? AppColors.textLinkColor
-                          : AppColors.textSubduedColor,
-                    ),
-                    TextNormal(
-                      title: 'Face to face option',
-                      size: 14,
-                      colors:Provider.of<RegisterNewInvestorProvider>(context)
-                          .choiceIndex ==
-                          1
-                          ? AppColors.textLinkColor
-                          : AppColors.textSubduedColor,
-                    )
-                  ],
-                ),
               ),
             ],
           ),

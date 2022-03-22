@@ -17,7 +17,13 @@ class AppImage{
   static const String BIBColorImage="assets/images/BIB_color.svg";
   static const String BIBBar1Image="assets/images/BIB_bar_1.svg";
   static const String BIBBar2Image="assets/images/BIB_bar_2.svg";
-  static const String visibleIcon="assets/images/visible_icon.svg";
   static const String BIB1Image="assets/images/BIB_1.svg";
   static const String dropDownIconIOS="assets/images/dropdown_icon_ios.svg";
+  static const String visibleIconImage="assets/images/visible_icon.svg";
+  static const String hiddenIconImage="assets/images/hidden_icon.svg";
+  static const String menuIconImage="assets/images/menu_icon.svg";
+  static const String investorIconImage="assets/images/investors_icon.png";
+  static const String transactionIconImage="assets/images/transaction_icon.png";
+  static const String leaderIconImage="assets/images/leader_icon.png";
+  static const String reportIconImage="assets/images/report_icon.png";
 }

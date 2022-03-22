@@ -7,6 +7,7 @@ class TransactionTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      alignment: Alignment.center,
       child: TextBold(title: 'Transaction tab',size: 30,colors: AppColors.mainBackGroundColor,),
     );
   }
