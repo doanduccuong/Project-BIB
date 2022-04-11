@@ -24,6 +24,7 @@ class AppColors {
   static const Color textLinkColor=Color(0xFF2B4AC7);
   static const Color mediumBorderColor=Color(0xFFABB4D4);
   static const Color textSecondaryColor=Color(0xFF2F323D);
+  static const Color borderLowColor=Color(0xFFE4E7F1);
   static const Gradient gradientStyle1 = LinearGradient(
     begin: Alignment.topLeft,
     end: Alignment.bottomLeft,

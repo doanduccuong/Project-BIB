@@ -26,4 +26,5 @@ class AppImage{
   static const String transactionIconImage="assets/images/transaction_icon.png";
   static const String leaderIconImage="assets/images/leader_icon.png";
   static const String reportIconImage="assets/images/report_icon.png";
+  static const String showRuleIconImage="assets/images/show_rule_icon.svg";
 }
