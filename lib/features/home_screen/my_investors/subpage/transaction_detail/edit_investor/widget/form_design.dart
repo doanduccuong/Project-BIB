@@ -18,11 +18,15 @@ class FormDesign extends StatelessWidget {
   final List<TextInputFormatter>? inputFormat;
   final TextInputType? keyboardType;
   final double? requiredTileFontSize;
+  final Function(String?)? onChanged;
+  final Function()? onTap;
   FormDesign({
     Key? key,
     required this.controller,
     this.width,
     this.obscureText,
+    this.onTap,
+    this.onChanged,
     this.keyboardType,
     this.requiredTileFontSize,
     this.inputFormat,
@@ -44,6 +48,8 @@ class FormDesign extends StatelessWidget {
         children: [
           TextFormField(
 
+            onTap: onTap,
+            onChanged: onChanged,
             keyboardType: keyboardType,
             inputFormatters: inputFormat,
             obscureText: obscureText ?? false,
@@ -52,12 +58,10 @@ class FormDesign extends StatelessWidget {
             validator: validator,
             controller: controller,
             style: TextStyle(
-              color: AppColors.textPrimaryColor,
-              fontWeight: FontWeight.w500,
-              fontSize: 12
-            ),
+                color: AppColors.textPrimaryColor,
+                fontWeight: FontWeight.w500,
+                fontSize: 12),
             decoration: InputDecoration(
-
               label: RequiredTitle(
                 fontSize: 14,
                 title: title,
@@ -69,7 +73,7 @@ class FormDesign extends StatelessWidget {
                 ),
               ),
               isDense: true,
-              contentPadding: EdgeInsets.only(bottom: 10,top: 2),
+              contentPadding: EdgeInsets.only(bottom: 10, top: 2),
               fillColor: AppColors.textPrimaryColor,
               suffixIcon: suffixIcon,
               suffixIconConstraints:

@@ -59,6 +59,7 @@ void main() async {
       ChangeNotifierProvider(create: (_) => MyProfileBottomBarProvider()),
       ChangeNotifierProvider(create: (_) => HomeLoginProvider()),
 
+
     ],
     child: _AppBootstrapper(),
   ));
